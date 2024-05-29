@@ -42,6 +42,6 @@ body {
 
 @layer base {
   html, body, header {
-    @apply max-w-[1920px] mx-auto text-black opacity-100 overflow-x-hidden w-full;
+    @apply max-w-[1920px] mx-auto text-black opacity-100 overflow-x-hidden md:overflow-hidden w-full;
   }
 }

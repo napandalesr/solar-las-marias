@@ -20,7 +20,17 @@ const config: Config = {
         green: "#00A755",
         yelow: "#E9C43B",
         orange: "#DD7A36"
-      }
+      },
+      keyframes: {
+        'float-up-sm': {
+          '0%': {transform: 'translateY(0px)'},
+          '50%': {transform: 'translateY(-8px)'},
+          '100%': {transform: 'translateY(0px)'},
+        },
+      },
+      animation: {
+        'float-up-sm': 'float-up-sm 5s ease-in-out infinite both',
+      },
     },
   },
   plugins: [],
