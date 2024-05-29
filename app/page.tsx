@@ -25,8 +25,10 @@ export default function Home() {
   const elementRef = useRef(null);
   const [paneles, setPaneles] = useState(0);
   const [irradiancia, setIrradiancia] = useState(0);
+  const [capacidad, setCapacidad] = useState(0);
   const [factor, setFactor] = useState(0);
   const [produccion, setProduccion] = useState(0);
+  const [mnw, setMnw] = useState(0);
   const [hectareas, setHectareas] = useState(0);
   const [capex, setCapex] = useState(0);
   const [opex, setOpex] = useState(0);
@@ -59,6 +61,17 @@ export default function Home() {
     }
   }
 
+  const animationCapacidad = (increment: number = 0) => {
+    if (increment < 109) {
+      setCapacidad(increment);
+      setTimeout(() => {
+        animationCapacidad(increment + 6)
+      }, 10)
+    } else {
+      setCapacidad(109);
+    }
+  }
+
   const animationFactor = (increment: number = 0) => {
     if (increment < 18) {
       setFactor(increment);
@@ -71,13 +84,24 @@ export default function Home() {
   }
 
   const animationProduccion = (increment: number = 0) => {
-    if (increment < 170187) {
+    if (increment < 170.1) {
       setProduccion(increment);
       setTimeout(() => {
-        animationProduccion(increment + 1000)
+        animationProduccion(increment + 5.1)
       }, 10)
     } else {
-      setProduccion(170187);
+      setProduccion(170.1);
+    }
+  }
+
+  const animationMnw = (increment: number = 0) => {
+    if (increment < 99.5) {
+      setMnw(increment);
+      setTimeout(() => {
+        animationMnw(increment + 3.1)
+      }, 10)
+    } else {
+      setMnw(99.5);
     }
   }
 
@@ -146,8 +170,10 @@ export default function Home() {
               if (paneles === 0) {
                 animationPaneles();
                 animationIrradiancia();
+                animationCapacidad();
                 animationFactor();
                 animationProduccion();
+                animationMnw();
                 animationHectareas();
                 animationCapex();
                 animationOpex();
@@ -173,7 +199,7 @@ export default function Home() {
       }
     };
 
-  }, [animationCapex, animationFactor, animationGarantia, animationHectareas, animationIrradiancia, animationOpex, animationPaneles, animationProduccion, animationTir, paneles]);
+  }, [animationCapex, animationFactor, animationGarantia, animationHectareas, animationIrradiancia, animationCapacidad, animationOpex, animationPaneles, animationProduccion, animationMnw, animationTir, paneles]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -241,7 +267,7 @@ export default function Home() {
           <section className="relative h-screen w-screen" id="top">
             <Image
                 className={`h-screen w-full object-cover hidden md:block ${screenWith > 760 ? navBar == 'top' ? 'animate__animated animate__bounceInUp' : 'animate__animated animate__bounceOutUp' : ''}`}
-                src={'/images/solar.jpeg'} width={6000} height={3600} alt=""/>
+                src={'/images/solar.jpeg'} quality={100} width={6000} height={3600} alt=""/>
             <span
                 className="absolute mx-14 md:mx-0 mt-8 md:mt-0 md:left-auto md:translate-x-0 top-[20vh] text-white text-center md:text-right md:right-[5vw] z-10 md:w-[60%] md:mr-8">
               <h1 className={`font-bold text-4xl md:text-7xl xl:text-8xl ${screenWith > 760 ? navBar == 'top' && 'animate__animated animate__fadeInDown' : ''}`}>Solar Las Marías</h1>
@@ -470,30 +496,43 @@ export default function Home() {
                    id="capacity">
       <span
           className={`md:h-[26vh] xl:h-[50vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
-        <h2 className="text-xl xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
+        <h2 className="text-xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
         <section ref={elementRef}
-                 className="grid md:flex grid-cols-[40%_60%] md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-4 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
+                 className="grid md:flex xl:grid 2xl:flex grid-cols-[40%_60%] xl:grid-cols-4 xl:justify-items-center 2xl:flex-row md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
           <span
-              className="md:border-r-2 md:w-[20%] px-4 flex justify-center flex-col md:flex-row md:items-center xl:items-start"><strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-4 flex items-end">{paneles} <span
-              className="text-lg xl:text-xl md:pb-1">Mil</span></strong> <span
-              className="w-28 text-base xl:text-inherit">Paneles instalados</span></span>
+              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{irradiancia} <span
+              className="text-lg 2xl:text-xl 2xl:pb-1">kWh/m2</span></strong> <span
+              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Irradiancia solar anual</span></span>
           <span
-              className="md:border-r-2 md:w-[28%] px-4 flex justify-center flex-col md:flex-row md:items-center xl:items-start"> <strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-4 flex items-end">{irradiancia} <span
-              className="text-lg xl:text-xl md:pb-1">kWh/m2</span></strong> <span
-              className="w-36 text-base xl:text-inherit">Irradiancia solar anual</span></span>
+              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{capacidad} <span
+              className="text-lg 2xl:text-xl 2xl:pb-1">MWp</span></strong> <span
+              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Capacidad instalada</span></span>
           <span
-              className="md:border-r-2 md:w-[19%] px-4 flex justify-center flex-col md:flex-row md:items-center xl:items-start"> <strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-4 flex items-end">{factor} <span
-              className="text-xl ml-1 md:pb-1">%</span> </strong><span className="w-28 text-base xl:text-inherit">Factor de planta</span></span>
+              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{paneles} <span
+              className="text-lg 2xl:text-xl 2xl:pb-1">Mil</span></strong> <span
+              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Paneles instalados</span></span>
           <span
-              className="md:w-[25%] px-4 md:px-8 flex justify-center flex-col md:flex-row md:items-center xl:items-start md:ml-2"><strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-4 flex items-end">{produccion} <span
-              className="text-lg xl:text-xl md:pb-1">MWh</span></strong> <span
-              className="w-36 text-base xl:text-inherit">Producción anual</span></span>
+              className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{factor} <span
+              className="text-xl ml-1 md:pb-1">%</span> </strong><span
+              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Factor de planta</span></span>
+          <div className={"col-span-4 grid grid-cols-2 justify-items-center place-items-center w-1/2 gap-6"}>
+            <span
+                className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+                className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{produccion.toFixed(1)} <span
+                className="text-lg 2xl:text-xl 2xl:pb-1">MWh</span></strong> <span
+                className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Producción anual</span></span>
+            <span
+                className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+                className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{mnw.toFixed(1)} <span
+                className="text-lg 2xl:text-xl 2xl:pb-1">MWn</span></strong></span>
+          </div>
         </section>
       </span>
+
             <span
                 className={`h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 md:pt-0 md:py-0 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInDownBig' : 'animate__animated animate__fadeOutDownBig' : ''}`}>
       <h2 className="text-xl xl:text-3xl my-2 xl:my-4 font-bold">Ubicación</h2>
