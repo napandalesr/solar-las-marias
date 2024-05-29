@@ -2,7 +2,7 @@
 
 import Header from "@/components/Header";
 import Image from "next/image";
-import {Swiper, SwiperSlide} from 'swiper/react';
+import {Swiper, SwiperSlide, useSwiper} from 'swiper/react';
 import {Navigation} from 'swiper/modules';
 import {
   ArrowDownCircle,
@@ -35,6 +35,7 @@ export default function Home() {
   const [screenWith, setScreenWith] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [project, setProject] = useState(0);
+  const swiper = useSwiper();
 
   const animationPaneles = (increment: number = 0) => {
     if (increment < 168) {
@@ -240,9 +241,9 @@ export default function Home() {
           <section className="relative h-screen w-screen" id="top">
             <Image
                 className={`h-screen w-full object-cover hidden md:block ${screenWith > 760 ? navBar == 'top' ? 'animate__animated animate__bounceInUp' : 'animate__animated animate__bounceOutUp' : ''}`}
-                src={'/images/solar.jpg'} width={6000} height={3600} alt=""/>
+                src={'/images/solar.jpeg'} width={6000} height={3600} alt=""/>
             <span
-                className="absolute mx-14 md:mx-0 mt-8 md:mt-0 md:left-auto md:translate-x-0 top-[20vh] text-white text-center md:text-right md:right-[5vw] z-10 md:w-[60%] md:mr-4">
+                className="absolute mx-14 md:mx-0 mt-8 md:mt-0 md:left-auto md:translate-x-0 top-[20vh] text-white text-center md:text-right md:right-[5vw] z-10 md:w-[60%] md:mr-8">
               <h1 className={`font-bold text-4xl md:text-7xl xl:text-8xl ${screenWith > 760 ? navBar == 'top' && 'animate__animated animate__fadeInDown' : ''}`}>Solar Las Marías</h1>
               <p className={`md:text-xl xl:text-2xl mt-4 font-medium md:pl-36 max-w-[920px] float-right ${screenWith > 760 ? navBar === 'top' && 'animate__animated animate__fadeInDown' : ''}`}>
                 Una solución energética que se construye aprovechando el poder del sol y las mejores
@@ -256,9 +257,9 @@ export default function Home() {
                 className="bg-gradient-to-bl from-black/30 to-transparent absolute top-0 left-0 right-0 bottom-0 z-0"/>
 
             {
-                screenWith > 760 && <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh]">
+                screenWith > 760 && <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] Z-50">
                   <Link href={'#about'} onClick={() => setNavBar('about')}><ArrowDownCircle
-                    className="text-white animate__animated animate__fadeInUpBig !animate-float-up-sm"
+                    className="text-white animate__animated animate__fadeInUpBig !animate-float-up-sm Z-50"
                     size={60}/> </Link>
                 </span>
             }
@@ -266,7 +267,7 @@ export default function Home() {
           <section className="relative w-full" id="about">
             <span
                 className="z-10 w-full absolute top-6 md:top-[20vh] xl:top-[24vh] text-primary left-8 md:left-16 xl:left-24 flex flex-col items-start justify-start gap-8">
-              <p className={`md:text-2xl xl:text-4xl md:mt-4 w-1/2 md:w-[35%] xl:w-[40%] ${screenWith > 760 ? navBar == 'about' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
+              <p className={`md:text-2xl xl:text-4xl md:mt-4 w-1/2 md:w-[35%] xl:w-[37%] ${screenWith > 760 ? navBar == 'about' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
                 En una extensión de 200 hectáreas bordeadas por el Río Guachicono, <strong>la Granja Solar Las Marías se reconoce hoy como la solución Solar más grande del Suroccidente colombiano</strong>.
               </p>
               <Link href={"#contact"}
@@ -287,21 +288,21 @@ export default function Home() {
               </span>
             }
           </section>
-          <section id="projects" className="h-screen text-center relative bg-white">
+          <section id="projects" className="md:h-screen text-center relative bg-white">
             <section
                 className={`hidden md:text-xs xl:text-base md:flex md:items-center w-screen h-[20vh] border-2 text-left z-10 relative text-primary top-[10vh] ${screenWith > 760 ? navBar == 'projects' ? 'animate__animated animate__flipInX' : 'animate__animated animate__flipOutX' : ''}`}>
               <span className="w-1/3 flex justify-center px-4 items-center">
                 <Image
-                    className={`h-16 xl:h-44 w-auto mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
                     src="/icons/icon1.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p>Seremos la ventana a la <strong className={"italic"}>transición energética del Departamento del Cauca.</strong></p>
                 </span>
               </span>
               <span className={"w-0.5 h-4/5 bg-gray-400"}/>
-              <span className="w-1/3 flex justify-center px-4 items-center">
+              <span className="w-[30%] flex justify-center px-4 items-center">
                 <Image
-                    className={`h-16 xl:h-44 w-auto mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
                     src="/icons/icon2.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p>
@@ -310,9 +311,9 @@ export default function Home() {
                 </span>
               </span>
               <span className={"w-0.5 h-4/5 bg-gray-400"}/>
-              <span className="w-1/3 flex justify-center px-4 items-center">
+              <span className="w-[38%] flex justify-center px-4 items-center">
                 <Image
-                    className={`h-16 xl:h-44 w-auto mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
                     src="/icons/icon3.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p>
@@ -322,9 +323,9 @@ export default function Home() {
                 </span>
               </span>
               <span className={"w-0.5 h-4/5 bg-gray-400"}/>
-              <span className="w-1/3 flex justify-center px-4 items-center">
+              <span className="w-[30%] flex justify-center px-4 items-center">
                 <Image
-                    className={`h-16 xl:h-44 w-auto mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 mr-4 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
                     src="/icons/icon4.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p>
@@ -333,7 +334,7 @@ export default function Home() {
               </span>
           </span>
             </section>
-            <section className="pt-1 ml-4 md:hidden">
+            <section className="slider-projects pt-1 ml-4 md:hidden">
               <Swiper
                   modules={[Navigation]}
                   spaceBetween={30}
@@ -342,8 +343,9 @@ export default function Home() {
                   navigation
                   pagination={{clickable: true}}
                   mousewheel
-                  className={`mt-8 text-left w-full ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUpBig' : ''}`}
+                  className={` mt-8 text-left w-full ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUpBig' : ''}`}
               >
+                <button onClick={() => swiper.slideNext()}></button>
                 <SwiperSlide className={`!w-60 md:!w-96 relative`}>
                   <p className="bg-secundary text-white font-medium rounded-xl p-4">Seremos la ventana a la transición
                     energética del Departamento del Cauca.</p>
@@ -363,11 +365,31 @@ export default function Home() {
                 </SwiperSlide>
               </Swiper>
             </section>
-            <section className="flex items-start justify-center gap-6 xl:gap-16 pt-24 xl:pt-44">
-              <section className={"flex flex-col items-start justify-start text-primary ml-8"}>
-                <h4 className="font-black text-2xl xl:text-3xl uppercase">Nuestros Proyectos</h4>
-                <span className={"-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-[42rem]"}/>
-                <ul className={"list-disc flex flex-col items-start justify-start gap-2 text-lg xl:text-xl mt-4"}>
+            <section className="flex items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-24 xl:pt-44">
+              <section className={`flex flex-col items-start justify-start text-primary md:ml-8 px-4 md:px-0 ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}>
+                <h4 className="font-black text-2xl xl:text-3xl uppercase">A qué le Apostamos</h4>
+                <span className={`md:-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-2/3 md:w-[42rem] ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}/>
+                <section className="md:hidden w-full mt-8 text-left mb-10">
+                  <p className="text-base font-medium">- Compromiso con el medio ambiente</p>
+                  <p className={"text-sm text-neutral-500 mb-4"}>Diseñada para minimizar el impacto
+                    ambiental, utilizando tecnología de punta para generar energía renovable de manera eficiente y
+                    responsable.</p>
+                    <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
+                        className={"w-full rounded"}/>
+                  <p className="text-base font-medium mt-4">- Innovación y futuro</p>
+                  <p className={"text-sm text-neutral-500 mb-4"}>En la Granja Solar Las Marías, apostamos
+                    por la innovación constante para ofrecer soluciones energéticas avanzadas que no solo
+                    beneficien a nuestros clientes, sino también a las generaciones futuras.</p>
+                  <Image src={"/images/solar2.png"} alt={""} width={1280} height={1536}
+                      className={"w-full rounded"}/>
+                  <p className="text-base font-medium mt-4">- Compromiso social</p>
+                  <p className={"text-sm text-neutral-500 mb-4"}>Un proyecto que impulsa el conocimiento,
+                    hace crecer la economía, contribuye a reducir las brechas de desigualdad, tecnología,
+                    ambiental y social.</p>
+                    <Image src={"/images/solar3.png"} alt={""} width={1280} height={1536}
+                      className={"w-full rounded"}/>
+                </section>
+                <ul className={"hidden md:flex flex-col items-start justify-start gap-2 list-disc text-lg xl:text-xl mt-4"}>
                   <li>
                     <button className={`transition-all duration-200 ease-in-out ${project === 0 && "font-bold"}`}
                             onClick={() => setProject(0)}>Compromiso con el medio ambiente
@@ -386,21 +408,21 @@ export default function Home() {
                 </ul>
               </section>
               <section
-                  className={"relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] xl:w-[28rem] h-[24rem] xl:h-[32rem] overflow-clip rounded-2xl"}>
+                  className={`hidden md:block relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] xl:w-[28rem] h-[24rem] xl:h-[32rem] overflow-clip rounded-2xl ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__rotateIn' : 'animate__animated animate__rotateOut' : ''}`}>
                 {
                   project === 0 ? (
                       <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
-                             className={"absolute top-0 left-0 w-full h-full object-fill"}/>
+                             className={"absolute top-0 left-0 w-au h-full object-cover"}/>
                   ) : project === 1 ? (
                       <Image src={"/images/solar2.png"} alt={""} width={1280} height={1536}
-                             className={"absolute top-0 left-0 w-full h-full object-fill"}/>
+                             className={"absolute top-0 left-0 w-full h-full object-cover"}/>
                   ) : (
                       <Image src={"/images/solar3.png"} alt={""} width={1280} height={1536}
-                             className={"absolute top-0 left-0 w-full h-full object-fill"}/>
+                             className={"absolute top-0 left-0 w-full h-full object-cover"}/>
                   )
                 }
               </section>
-              <section>
+              <section className={`hidden md:block ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInRight' : 'animate__animated animate__fadeOutRight' : ''}`}>
                 {
                   project === 0 ? (
                       <div
@@ -444,10 +466,10 @@ export default function Home() {
             }
             <span className={"absolute bottom-0 h-4 left-0 w-full bg-yelow"}/>
           </section>
-          <section className="md:h-screen relative flex md:text-center justify-start flex-col bg-green pt-16 xl:pt-0"
+          <section className={`md:h-screen relative flex md:text-center justify-start flex-col bg-green md:pt-16 xl:pt-0`}
                    id="capacity">
       <span
-          className="md:h-[26vh] xl:h-[30vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8">
+          className={`md:h-[26vh] xl:h-[50vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
         <h2 className="text-xl xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
         <section ref={elementRef}
                  className="grid md:flex grid-cols-[40%_60%] md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-4 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
@@ -473,41 +495,14 @@ export default function Home() {
         </section>
       </span>
             <span
-                className="md:h-[26vh] xl:h-[30vh] flex flex-col items-center justify-center bg-tertiary text-white pb-8 md:pb-0 md:px-14 px-4">
-      <h2 className="text-xl xl:text-3xl my-2 xl:my-4 font-bold">Recursos</h2>
-        <section
-            className="grid md:flex grid-cols-[40%_60%] md:flex-row md:items-center xl:items-start text-xl gap-2 gap-y-8 gap-x-2 md:!gap-4 w-full justify-center mt-4 text-left">
-          <span
-              className="md:border-r-2 md:w-[22%] px-4 md:px-8 flex justify-center flex-col md:flex-row md:items-center xl:items-start"><strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-4 flex items-end">{capex} <span
-              className="text-lg xl:text-xl md:pb-1">k</span> </strong><span
-              className={"text-base xl:text-inherit"}>CAPEX</span></span>
-          <span
-              className="md:border-r-2 md:w-[25%] px-4 md:px-8 flex justify-center flex-col md:flex-row md:items-center xl:items-start"><strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-4 flex items-end">{opex} <span
-              className="text-lg xl:text-xl md:pb-1">k</span> </strong>OPEX Año</span>
-          <span
-              className="md:border-r-2 md:w-[16%] px-4 md:px-8 flex justify-center flex-col md:flex-row md:items-center xl:items-start"><strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-4 flex items-end">{tir} <span
-              className="text-base xl:text-xl ml-1 md:pb-1">%</span> </strong>TIR </span>
-          <span
-              className=" md:w-[34%] px-4 flex justify-center flex-col md:flex-row md:items-center xl:items-start"><span
-              className="hidden md:block">$</span> <strong
-              className="text-3xl md:text-4xl xl:text-6xl mr-2 flex items-end"><span
-              className="md:hidden text-xl">$</span>{garantia}M<span
-              className="text-lg xl:text-xl md:pb-1">Cop</span></strong> <span
-              className="w-40 text-base xl:text-inherit">Garantía de conexión</span></span>
-        </section>
-      </span>
-            <span
-                className="h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 md:py-0 text-left px-4">
+                className={`h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 md:pt-0 md:py-0 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInDownBig' : 'animate__animated animate__fadeOutDownBig' : ''}`}>
       <h2 className="text-xl xl:text-3xl my-2 xl:my-4 font-bold">Ubicación</h2>
         <section
-            className="grid grid-cols-2 md:flex flex-col md:flex-row md:items-center xl:items-start text-xl gap-4 w-full justify-center items-center">
+            className=" md:flex md:flex-row md:items-center xl:items-start text-xl gap-4 w-full justify-center items-center">
           <span
-              className="md:border-r-2 md:w-[25%] px-4 md:px-8 flex items-center gap-4"><strong>Cauca - Colombia</strong><Image
+              className="md:border-r-2 md:w-[25%] px-4 md:px-8 flex items-center gap-4 flex-row-reverse md:flex-row justify-end md:justify-start"><strong>Cauca - Colombia</strong><Image
               className="w-20" src={'/icons/cauca.png'} width={1920} height={1920} alt="Cauca"/> </span>
-          <span className="md:w-[25%] px-4 md:px-8 flex justify-center"><strong
+          <span className="md:w-[25%] px-4 md:px-8 flex justify-end"><strong
               className="text-6xl mr-4 flex">{hectareas} </strong>Hectáreas de terreno</span>
         </section>
       </span>
@@ -525,9 +520,9 @@ export default function Home() {
 
           </section>
           <section id="contact" className="h-screen w-screen flex relative flex-col-reverse md:flex-row">
-            <section className="md:w-1/2 h-full px-14 my-auto relative flex justify-center items-center bg-primary">
+            <section className="md:w-1/2 h-full px-14 my-auto relative flex flex-col md:flex-row justify-center items-center bg-primary gap-6 md:gap-0">
               <Image
-                  className={`h-32 w-auto absolute top-24 left-1/2 -translate-x-1/2 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__rollOut' : ''}`}
+                  className={`h-32 w-auto md:absolute top-24 left-1/2 md:-translate-x-1/2 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__rollOut' : ''}`}
                   src={'/icons/logo-ligth.png'} width={620} height={449} alt=""/>
               <form
                   className={`flex flex-col gap-1 md:gap-8 md:w-2/3 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__slideInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
@@ -538,10 +533,8 @@ export default function Home() {
                        placeholder="Correo"/>
                 <input className="px-4 py-2 bg-transparent border-b-2 border-tertiary rounded-tr-xl" type="text"
                        placeholder="Número de contacto"/>
-                <button className="text-xl text-white px-8 py-2 mx-auto my-2 w-min rounded-3xl bg-secundary">Enviar
+                <button className="text-xl text-white px-8 py-2 mx-auto my-8 md:my-2 w-min rounded-3xl bg-secundary">Enviar
                 </button>
-                <span>
-          </span>
               </form>
             </section>
             <section
@@ -563,14 +556,14 @@ export default function Home() {
 
           </section>
         </main>
-        <footer className="h-[70vh] md:h-screen flex flex-col relative" id="footer">
+        <footer className="h-[60vh] md:h-screen flex flex-col relative" id="footer">
       <span
           className={`bg-primary border-b-2 md:h-[40vh] relative px-2 ${screenWith > 760 ? navBar == 'footer' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut' : ''}`}>
         {
             screenWith > 760 && <>
             <Link className="rotate-180 hidden md:block absolute left-1/2 -translate-x-1/2 top-[10vh]" href={'#contact'}
                   onClick={() => setNavBar('contact')}>
-              <ArrowDownCircle className="h-32 xl:h-auto text-white animate__animated animate__fadeInUpBig" size={180}/>
+              <ArrowDownCircle className="h-32 xl:h-auto text-white animate__animated animate__fadeInUpBig !animate-float-up-sm" size={180}/>
             </Link>
             <Link className="rotate-180 absolute left-1/2 -translate-x-1/2 top-8 md:top-[10vh] md:hidden"
                   href={'#contact'} onClick={() => setNavBar('contact')}>
@@ -580,10 +573,10 @@ export default function Home() {
         }
       </span>
           <section
-              className={`bg-primary h-[80vh] md:h-[60vh] absolute w-full bottom-0 p-4 md:p-20 flex flex-col md:flex-row text-white ${screenWith > 760 ? navBar == 'footer' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut' : ''}`}>
+              className={`bg-primary h-[70vh] md:h-[60vh] absolute w-full bottom-0 p-4 md:p-20 flex flex-col md:flex-row text-white ${screenWith > 760 ? navBar == 'footer' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut' : ''}`}>
         <span className="md:w-1/2 absolute md:relative right-4 flex flex-col md:flex-col">
           <Image className="w-24 md:w-40 xl:w-60" src={'/icons/logo-ligth.png'} width={620} height={449} alt="Logo"/>
-          <span className="flex flex-col items-end md:flex-row gap-3 md:gap-5 my-8 xl:mt-4">
+          <span className="flex flex-col items-end md:flex-row md:gap-5 md:my-8 xl:mt-4">
             <Link href={''}><Whatsapp className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
             <Link href={''}><Youtube className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
             <Link href={''}><Facebook className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>

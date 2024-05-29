@@ -24,6 +24,37 @@
   }
 }
 
+.slider-projects .swiper-button-prev::after, .swiper-button-next::after {
+  height: 100%;
+  background-color: initial;
+  position: absolute;
+  top: 4.5rem;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 50px;
+}
+
+.slider-projects .swiper-button-prev::after {
+  content: url('/svg/arrow_forward.svg');
+  border-radius: 1rem 0 0 1rem;
+}
+
+.slider-projects .swiper-button-next::after {
+  content: url('/svg/arrow_forward_right.svg');
+  border-radius: 0 1rem 1rem 0;
+}
+
+.swiper-button-disabled {
+  opacity: 0;
+}
+
+.swiper-button-next::after {
+  right: 0;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
