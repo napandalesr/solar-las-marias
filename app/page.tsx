@@ -29,7 +29,12 @@ export default function Home() {
   const [factor, setFactor] = useState(0);
   const [produccion, setProduccion] = useState(0);
   const [mnw, setMnw] = useState(0);
+  const [operDia, setOperDia] = useState(0);
+  const [operMes, setOperMes] = useState(0);
+  const [operAnio, setOperAnio] = useState(0);
+  const [subestacion, setSubestacion] = useState(0);
   const [hectareas, setHectareas] = useState(0);
+  const [co2, setCo2] = useState(0);
   const [capex, setCapex] = useState(0);
   const [opex, setOpex] = useState(0);
   const [garantia, setGarantia] = useState(0);
@@ -105,6 +110,50 @@ export default function Home() {
     }
   }
 
+  const animationOperDia = (increment: number = 0) => {
+    if (increment < 31) {
+      setOperDia(increment);
+      setTimeout(() => {
+        animationOperDia(increment + 1)
+      }, 30)
+    } else {
+      setOperDia(31);
+    }
+  }
+
+  const animationOperMes = (increment: number = 0) => {
+    if (increment < 12) {
+      setOperMes(increment);
+      setTimeout(() => {
+        animationOperMes(increment + 1)
+      }, 100)
+    } else {
+      setOperMes(12);
+    }
+  }
+
+  const animationOperAnio = (increment: number = 0) => {
+    if (increment < 24) {
+      setOperAnio(increment);
+      setTimeout(() => {
+        animationOperAnio(increment + 1)
+      }, 50)
+    } else {
+      setOperAnio(23);
+    }
+  }
+
+  const animationSubestacion = (increment: number = 0) => {
+    if (increment < 115) {
+      setSubestacion(increment);
+      setTimeout(() => {
+        animationSubestacion(increment + 10)
+      }, 10)
+    } else {
+      setSubestacion(115);
+    }
+  }
+
   const animationHectareas = (increment: number = 0) => {
     if (increment < 216) {
       setHectareas(increment);
@@ -113,6 +162,17 @@ export default function Home() {
       }, 10)
     } else {
       setHectareas(216);
+    }
+  }
+
+  const animationCo2 = (increment: number = 0) => {
+    if (increment < 26209) {
+      setCo2(increment);
+      setTimeout(() => {
+        animationCo2(increment + 1203)
+      }, 10)
+    } else {
+      setCo2(26209);
     }
   }
 
@@ -174,7 +234,13 @@ export default function Home() {
                 animationFactor();
                 animationProduccion();
                 animationMnw();
+                animationOperDia();
+                animationOperMes();
+                animationOperAnio();
+                animationSubestacion()
+                animationCapacidad();
                 animationHectareas();
+                animationCo2();
                 animationCapex();
                 animationOpex();
                 animationGarantia();
@@ -199,7 +265,7 @@ export default function Home() {
       }
     };
 
-  }, [animationCapex, animationFactor, animationGarantia, animationHectareas, animationIrradiancia, animationCapacidad, animationOpex, animationPaneles, animationProduccion, animationMnw, animationTir, paneles]);
+  }, [animationCapex, animationFactor, animationGarantia, animationHectareas, animationIrradiancia, animationCapacidad, animationOpex, animationPaneles, animationProduccion, animationMnw, animationTir, paneles, animationOperDia, animationOperMes, animationOperAnio, animationSubestacion, animationCo2]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -306,10 +372,10 @@ export default function Home() {
                 screenWith > 760 &&
               <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
                 <Link onClick={() => setNavBar('top')} className="rotate-180" href={'#top'}><ArrowDownCircle
-                  className="animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto" size={60}
+                  className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#fff"/> </Link>
                 <Link href={'#projects'} onClick={() => setNavBar('projects')}><ArrowDownCircle
-                  className="animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto" size={60}
+                  className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#fff"/> </Link>
               </span>
             }
@@ -483,22 +549,23 @@ export default function Home() {
                 screenWith > 760 &&
               <span className="absolute right-72 xl:right-[28rem] bottom-[8vh] md:bottom-[4vh] flex gap-4">
                 <Link onClick={() => setNavBar('about')} className="rotate-180" href={'#about'}><ArrowDownCircle
-                  className="animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto" size={60}
+                  className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#19255B"/> </Link>
                 <Link href={'#capacity'} onClick={() => setNavBar('capacity')}><ArrowDownCircle
-                  className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto" size={60}
+                  className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#19255B"/> </Link>
               </span>
             }
             <span className={"absolute bottom-0 h-4 left-0 w-full bg-yelow"}/>
           </section>
-          <section className={`md:h-screen relative flex md:text-center justify-start flex-col bg-green md:pt-16 xl:pt-0`}
-                   id="capacity">
+          <section
+              className={`md:h-screen relative flex md:text-center justify-start flex-col bg-green md:pt-16 xl:pt-0`}
+              id="capacity">
       <span
-          className={`md:h-[26vh] xl:h-[50vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+          className={`md:h-[26vh] xl:h-[40vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
         <h2 className="text-xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
         <section ref={elementRef}
-                 className="grid md:flex xl:grid 2xl:flex grid-cols-[40%_60%] xl:grid-cols-4 xl:justify-items-center 2xl:flex-row md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
+                 className="grid md:flex lg:grid 2xl:flex grid-cols-[40%_60%] lg:grid-cols-4 lg:justify-items-center 2xl:flex-row md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
               className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{irradiancia} <span
@@ -532,15 +599,43 @@ export default function Home() {
           </div>
         </section>
       </span>
-
             <span
-                className={`h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 md:pt-0 md:py-0 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInDownBig' : 'animate__animated animate__fadeOutDownBig' : ''}`}>
-      <h2 className="text-xl xl:text-3xl my-2 xl:my-4 font-bold">Ubicación</h2>
+                className={`md:h-[26vh] xl:h-[30vh] flex flex-col items-center justify-center bg-tertiary text-white pb-8 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+        <section ref={elementRef}
+                 className="grid md:flex lg:grid 2xl:flex grid-cols-[40%_60%] lg:grid-cols-4 2xl:flex-row md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
+          <span
+              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">Fase 2 <span
+              className="text-lg 2xl:text-xl 2xl:pb-1">UPME</span></strong> <span
+              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Conexión a la red</span></span>
+          <span
+              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{operDia}. {operMes}. {operAnio} </strong> <span
+              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Fecha puesta en operación</span></span>
+          <span
+              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{subestacion} <span
+              className="text-lg 2xl:text-xl 2xl:pb-1">kV</span></strong> <span
+              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Subestación el Zaque</span></span>
+          <span
+              className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">Licencia Ambiental </strong><span
+              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Corporación Autónoma Regional del Cauca</span></span>
+        </section>
+      </span>
+            <span
+                className={`h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 md:pb-20 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInDownBig' : 'animate__animated animate__fadeOutDownBig' : ''}`}>
+      <h2 className="text-xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Ubicación</h2>
         <section
             className=" md:flex md:flex-row md:items-center xl:items-start text-xl gap-4 w-full justify-center items-center">
           <span
               className="md:border-r-2 md:w-[25%] px-4 md:px-8 flex items-center gap-4 flex-row-reverse md:flex-row justify-end md:justify-start"><strong>Cauca - Colombia</strong><Image
               className="w-20" src={'/icons/cauca.png'} width={1920} height={1920} alt="Cauca"/> </span>
+          <span
+              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">+{co2} <span
+              className="text-lg 2xl:text-xl 2xl:pb-1"> ton. CO2</span></strong> <span
+              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Prevenidas</span></span>
           <span className="md:w-[25%] px-4 md:px-8 flex justify-end"><strong
               className="text-6xl mr-4 flex">{hectareas} </strong>Hectáreas de terreno</span>
         </section>
@@ -549,17 +644,18 @@ export default function Home() {
                 screenWith > 760 &&
               <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
           <Link onClick={() => setNavBar('projects')} className="rotate-180" href={'#projects'}><ArrowDownCircle
-            className="animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto" size={60}
+            className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
             color="#fff"/> </Link>
           <Link href={'#contact'} onClick={() => setNavBar('contact')}><ArrowDownCircle
-            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto"
+            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
         </span>
             }
 
           </section>
           <section id="contact" className="h-screen w-screen flex relative flex-col-reverse md:flex-row">
-            <section className="md:w-1/2 h-full px-14 my-auto relative flex flex-col md:flex-row justify-center items-center bg-primary gap-6 md:gap-0">
+            <section
+                className="md:w-1/2 h-full px-14 my-auto relative flex flex-col md:flex-row justify-center items-center bg-primary gap-6 md:gap-0">
               <Image
                   className={`h-32 w-auto md:absolute top-24 left-1/2 md:-translate-x-1/2 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__rollOut' : ''}`}
                   src={'/icons/logo-ligth.png'} width={620} height={449} alt=""/>
@@ -572,7 +668,8 @@ export default function Home() {
                        placeholder="Correo"/>
                 <input className="px-4 py-2 bg-transparent border-b-2 border-tertiary rounded-tr-xl" type="text"
                        placeholder="Número de contacto"/>
-                <button className="text-xl text-white px-8 py-2 mx-auto my-8 md:my-2 w-min rounded-3xl bg-secundary">Enviar
+                <button
+                    className="text-xl text-white px-8 py-2 mx-auto my-8 md:my-2 w-min rounded-3xl bg-secundary">Enviar
                 </button>
               </form>
             </section>
@@ -585,10 +682,10 @@ export default function Home() {
                 screenWith > 760 &&
               <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
           <Link className="rotate-180" href={'#capacity'} onClick={() => setNavBar('capacity')}><ArrowDownCircle
-            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto"
+            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
           <Link href={'#footer'} onClick={() => setNavBar('footer')}><ArrowDownCircle
-            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 xl:h-auto"
+            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
         </span>
             }
@@ -602,7 +699,8 @@ export default function Home() {
             screenWith > 760 && <>
             <Link className="rotate-180 hidden md:block absolute left-1/2 -translate-x-1/2 top-[10vh]" href={'#contact'}
                   onClick={() => setNavBar('contact')}>
-              <ArrowDownCircle className="h-32 xl:h-auto text-white animate__animated animate__fadeInUpBig !animate-float-up-sm" size={180}/>
+              <ArrowDownCircle
+                className="h-32 xl:h-auto text-white animate__animated animate__fadeInUpBig !animate-float-up-sm" size={180}/>
             </Link>
             <Link className="rotate-180 absolute left-1/2 -translate-x-1/2 top-8 md:top-[10vh] md:hidden"
                   href={'#contact'} onClick={() => setNavBar('contact')}>
@@ -616,12 +714,12 @@ export default function Home() {
         <span className="md:w-1/2 absolute md:relative right-4 flex flex-col md:flex-col">
           <Image className="w-24 md:w-40 xl:w-60" src={'/icons/logo-ligth.png'} width={620} height={449} alt="Logo"/>
           <span className="flex flex-col items-end md:flex-row md:gap-5 md:my-8 xl:mt-4">
-            <Link href={''}><Whatsapp className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Youtube className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Facebook className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Linkedin className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Instagram className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Twitter className={"aspect-square h-10 xl:h-auto"} color="#fff" size={25}/></Link>
+            <Link href={''}><Whatsapp className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
+            <Link href={''}><Youtube className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
+            <Link href={''}><Facebook className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
+            <Link href={''}><Linkedin className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
+            <Link href={''}><Instagram className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
+            <Link href={''}><Twitter className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
           </span>
         </span>
             <span className="flex flex-col gap-8 md:text-base xl:text-xl w-1/3">
