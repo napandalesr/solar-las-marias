@@ -359,7 +359,7 @@ export default function Home() {
           <section className="relative w-full" id="about">
             <span
                 className="z-10 w-full absolute top-6 md:top-[20vh] xl:top-[24vh] text-primary left-8 md:left-16 xl:left-24 flex flex-col items-start justify-start gap-8">
-              <p className={`md:text-2xl xl:text-4xl md:mt-4 w-1/2 md:w-[35%] xl:w-[37%] ${screenWith > 760 ? navBar == 'about' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
+              <p className={`md:text-2xl lg:text-3xl 2xl:text-4xl md:mt-4 w-1/2 md:w-[35%] xl:w-[37%] ${screenWith > 760 ? navBar == 'about' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
                 En una extensión de 200 hectáreas bordeadas por el Río Guachicono, <strong>la Granja Solar Las Marías se reconoce hoy como la solución Solar más grande del Suroccidente colombiano</strong>.
               </p>
               <Link href={"#contact"}
@@ -457,7 +457,7 @@ export default function Home() {
                 </SwiperSlide>
               </Swiper>
             </section>
-            <section className="flex items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-24 xl:pt-44">
+            <section className="flex items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-24 2xl:pt-44">
               <section className={`flex flex-col items-start justify-start text-primary md:ml-8 px-4 md:px-0 ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}>
                 <h4 className="font-black text-2xl xl:text-3xl uppercase">A qué le Apostamos</h4>
                 <span className={`md:-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-2/3 md:w-[42rem] ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}/>
@@ -500,7 +500,7 @@ export default function Home() {
                 </ul>
               </section>
               <section
-                  className={`hidden md:block relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] xl:w-[28rem] h-[24rem] xl:h-[32rem] overflow-clip rounded-2xl ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__rotateIn' : 'animate__animated animate__rotateOut' : ''}`}>
+                  className={`hidden md:block relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] 2xl:w-[28rem] h-[24rem] 2xl:h-[32rem] overflow-clip rounded-2xl ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__rotateIn' : 'animate__animated animate__rotateOut' : ''}`}>
                 {
                   project === 0 ? (
                       <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
@@ -519,25 +519,25 @@ export default function Home() {
                   project === 0 ? (
                       <div
                           className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                        <h2 className={"font-black text-3xl xl:text-5xl text-primary"}>Compromiso con<br/>el medio
+                        <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso con<br/>el medio
                           ambiente</h2>
-                        <p className={"text-lg xl:text-2xl text-neutral-500"}>Diseñada para minimizar el impacto
+                        <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Diseñada para minimizar el impacto
                           ambiental, utilizando tecnología de punta para generar energía renovable de manera eficiente y
                           responsable.</p>
                       </div>
                   ) : project === 1 ? (
                       <div
                           className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                        <h2 className={"font-black text-3xl xl:text-5xl text-primary"}>Innovación<br/>y futuro</h2>
-                        <p className={"text-lg xl:text-2xl text-neutral-500"}>En la Granja Solar Las Marías, apostamos
+                        <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Innovación<br/>y futuro</h2>
+                        <p className={"text-lg 2xl:text-2xl text-neutral-500"}>En la Granja Solar Las Marías, apostamos
                           por la innovación constante para ofrecer soluciones energéticas avanzadas que no solo
                           beneficien a nuestros clientes, sino también a las generaciones futuras.</p>
                       </div>
                   ) : (
                       <div
                           className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                        <h2 className={"font-black text-3xl xl:text-5xl text-primary"}>Compromiso<br/>social</h2>
-                        <p className={"text-lg xl:text-2xl text-neutral-500"}>Un proyecto que impulsa el conocimiento,
+                        <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso<br/>social</h2>
+                        <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Un proyecto que impulsa el conocimiento,
                           hace crecer la economía, contribuye a reducir las brechas de desigualdad, tecnología,
                           ambiental y social.</p>
                       </div>
@@ -562,64 +562,64 @@ export default function Home() {
               className={`md:h-screen relative flex md:text-center justify-start flex-col bg-green md:pt-16 xl:pt-0`}
               id="capacity">
       <span
-          className={`md:h-[26vh] xl:h-[40vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+          className={`md:h-[26vh] lg:h-[40vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
         <h2 className="text-xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
         <section ref={elementRef}
-                 className="grid md:flex lg:grid 2xl:flex grid-cols-[40%_60%] lg:grid-cols-4 lg:justify-items-center 2xl:flex-row md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
+                 className="grid md:flex lg:grid grid-cols-[40%_60%] lg:grid-cols-4 lg:justify-items-center md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{irradiancia} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{irradiancia} <span
               className="text-lg 2xl:text-xl 2xl:pb-1">kWh/m2</span></strong> <span
               className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Irradiancia solar anual</span></span>
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{capacidad} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{capacidad} <span
               className="text-lg 2xl:text-xl 2xl:pb-1">MWp</span></strong> <span
               className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Capacidad instalada</span></span>
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{paneles} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{paneles} <span
               className="text-lg 2xl:text-xl 2xl:pb-1">Mil</span></strong> <span
               className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Paneles instalados</span></span>
           <span
               className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{factor} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{factor} <span
               className="text-xl ml-1 md:pb-1">%</span> </strong><span
               className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Factor de planta</span></span>
           <div className={"col-span-4 grid grid-cols-2 justify-items-center place-items-center w-1/2 gap-6"}>
             <span
                 className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
-                className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{produccion.toFixed(1)} <span
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{produccion.toFixed(1)} <span
                 className="text-lg 2xl:text-xl 2xl:pb-1">MWh</span></strong> <span
                 className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Producción anual</span></span>
             <span
                 className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
-                className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{mnw.toFixed(1)} <span
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{mnw.toFixed(1)} <span
                 className="text-lg 2xl:text-xl 2xl:pb-1">MWn</span></strong></span>
           </div>
         </section>
       </span>
             <span
-                className={`md:h-[26vh] xl:h-[30vh] flex flex-col items-center justify-center bg-tertiary text-white pb-8 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+                className={`w-full md:h-[26vh] lg:h-[30vh] flex flex-col items-center justify-center bg-tertiary text-white pb-8 text-left md:px-8 lg:px-2 xl:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
         <section ref={elementRef}
-                 className="grid md:flex lg:grid 2xl:flex grid-cols-[40%_60%] lg:grid-cols-4 2xl:flex-row md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
+                 className="grid md:flex lg:grid grid-cols-[40%_60%] lg:grid-cols-4 md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">Fase 2 <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">Fase 2 <span
               className="text-lg 2xl:text-xl 2xl:pb-1">UPME</span></strong> <span
               className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Conexión a la red</span></span>
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{operDia}. {operMes}. {operAnio} </strong> <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 lg:mr-auto xl:mr-4 flex items-end">{operDia}. {operMes}. {operAnio} </strong> <span
               className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Fecha puesta en operación</span></span>
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">{subestacion} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{subestacion} <span
               className="text-lg 2xl:text-xl 2xl:pb-1">kV</span></strong> <span
               className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Subestación el Zaque</span></span>
           <span
               className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">Licencia Ambiental </strong><span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">Licencia Ambiental </strong><span
               className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Corporación Autónoma Regional del Cauca</span></span>
         </section>
       </span>
@@ -633,11 +633,11 @@ export default function Home() {
               className="w-20" src={'/icons/cauca.png'} width={1920} height={1920} alt="Cauca"/> </span>
           <span
               className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl 2xl:text-6xl mr-4 flex items-end">+{co2} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">+{co2} <span
               className="text-lg 2xl:text-xl 2xl:pb-1"> ton. CO2</span></strong> <span
               className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Prevenidas</span></span>
           <span className="md:w-[25%] px-4 md:px-8 flex justify-end"><strong
-              className="text-6xl mr-4 flex">{hectareas} </strong>Hectáreas de terreno</span>
+              className="2xl:text-6xl lg:text-3xl xl:text-4xl mr-4 flex">{hectareas} </strong>Hectáreas de terreno</span>
         </section>
       </span>
             {
@@ -730,7 +730,6 @@ export default function Home() {
         </span>
             <span className="flex flex-col gap-2 md:text-lg xl:text-2xl">
           <p>contacto@solarlasmarias.com</p>
-          <p>300 000 0000</p>
         </span>
             <section
                 className="absolute bottom-0 left-0 z-0 w-full text-sm xl:text-inherit h-16 xl:h-24 bg-primary brightness-75 flex items-center px-8">
