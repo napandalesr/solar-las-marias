@@ -562,82 +562,97 @@ export default function Home() {
               className={`md:h-screen relative flex md:text-center justify-start flex-col bg-green md:pt-16 xl:pt-0`}
               id="capacity">
       <span
-          className={`md:h-[26vh] lg:h-[40vh] flex flex-col items-center justify-center bg-primary text-white pb-8 md:pb-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
-        <h2 className="text-xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
+          className={`md:h-[26vh] lg:h-[40vh] flex flex-col items-center justify-center bg-primary text-white py-8 md:py-0 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+        <h2 className="text-3xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
         <section ref={elementRef}
-                 className="grid md:flex lg:grid grid-cols-[40%_60%] lg:grid-cols-4 lg:justify-items-center md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
+                 className="flex-wrap flex lg:grid lg:grid-cols-4 lg:justify-items-center md:flex-row text-xl gap-y-16 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
           <span
-              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{irradiancia} <span
-              className="text-lg 2xl:text-xl 2xl:pb-1">kWh/m2</span></strong> <span
-              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Irradiancia solar anual</span></span>
+              className="md:border-r-2 px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{irradiancia}
+            <span
+                className="text-lg 2xl:text-xl 2xl:pb-1">kWh/m2</span></strong> <span
+              className="text-center lg:text-start lg:w-36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Irradiancia solar anual</span></span>
           <span
-              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{capacidad} <span
-              className="text-lg 2xl:text-xl 2xl:pb-1">MWp</span></strong> <span
-              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Capacidad instalada</span></span>
+              className="md:border-r-2 px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"> <strong
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{capacidad}
+            <span
+                className="text-lg 2xl:text-xl 2xl:pb-1">MWp</span></strong> <span
+              className="text-center lg:text-start lg:w-36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Capacidad instalada</span></span>
           <span
-              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+              className="md:border-r-2 px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"><strong
               className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{paneles} <span
               className="text-lg 2xl:text-xl 2xl:pb-1">Mil</span></strong> <span
-              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Paneles instalados</span></span>
+              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Paneles instalados</span></span>
           <span
-              className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"> <strong
               className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{factor} <span
               className="text-xl ml-1 md:pb-1">%</span> </strong><span
-              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Factor de planta</span></span>
-          <div className={"col-span-4 grid grid-cols-2 justify-items-center place-items-center w-1/2 gap-6"}>
+              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Factor de planta</span></span>
+          <div className={"hidden col-span-4 lg:grid grid-cols-2 justify-items-center place-items-center w-1/2 gap-6"}>
             <span
-                className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
-                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{produccion.toFixed(1)} <span
-                className="text-lg 2xl:text-xl 2xl:pb-1">MWh</span></strong> <span
-                className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Producción anual</span></span>
+                className="md:border-r-2 px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"><strong
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{produccion.toFixed(1)}
+              <span
+                  className="text-lg 2xl:text-xl 2xl:pb-1">MWh</span></strong> <span
+                className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Producción anual</span></span>
             <span
-                className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
-                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{mnw.toFixed(1)} <span
-                className="text-lg 2xl:text-xl 2xl:pb-1">MWn</span></strong></span>
+                className="px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"><strong
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{mnw.toFixed(1)}
+              <span
+                  className="text-lg 2xl:text-xl 2xl:pb-1">MWn</span></strong></span>
           </div>
+          <span
+              className="md:border-r-2 px-4 lg:pr-8 lg:hidden flex justify-center flex-col md:flex-row items-center 2xl:items-start"><strong
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{produccion.toFixed(1)}
+            <span
+                className="text-lg 2xl:text-xl 2xl:pb-1">MWh</span></strong> <span
+              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Producción anual</span></span>
+            <span
+                className="px-4 lg:pr-8 lg:hidden flex justify-center flex-col md:flex-row items-center 2xl:items-start"><strong
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{mnw.toFixed(1)}
+              <span
+                  className="text-lg 2xl:text-xl 2xl:pb-1">MWn</span></strong></span>
         </section>
       </span>
             <span
-                className={`w-full md:h-[26vh] lg:h-[30vh] flex flex-col items-center justify-center bg-tertiary text-white pb-8 text-left md:px-8 lg:px-2 xl:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+                className={`w-full md:h-[26vh] lg:h-[30vh] flex-wrap flex flex-col items-center justify-center bg-tertiary text-white py-8 lg:pt-0 lg:pb-8 text-left md:px-8 lg:px-2 xl:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
         <section ref={elementRef}
-                 className="grid md:flex lg:grid grid-cols-[40%_60%] lg:grid-cols-4 md:flex-row text-xl gap-y-8 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
+                 className="flex-wrap flex lg:grid lg:grid-cols-4 md:flex-row text-xl gap-y-16 gap-x-2 md:!gap-6 w-full justify-center mt-4 px-4 md:px-0 md:mr-4">
           <span
-              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="md:border-r-2 px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"> <strong
               className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">Fase 2 <span
               className="text-lg 2xl:text-xl 2xl:pb-1">UPME</span></strong> <span
-              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Conexión a la red</span></span>
+              className="text-center lg:text-start lg:w-36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Conexión a la red</span></span>
           <span
-              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="md:border-r-2 px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"> <strong
               className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 lg:mr-auto xl:mr-4 flex items-end">{operDia}. {operMes}. {operAnio} </strong> <span
-              className="36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Fecha puesta en operación</span></span>
+              className="text-center lg:text-start lg:w-36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Fecha puesta en operación</span></span>
           <span
-              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+              className="md:border-r-2 px-4 lg:pr-8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"><strong
               className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">{subestacion} <span
               className="text-lg 2xl:text-xl 2xl:pb-1">kV</span></strong> <span
-              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Subestación el Zaque</span></span>
+              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Subestación el Zaque</span></span>
           <span
-              className="px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"> <strong
+              className="px-4 lg:pr-8 flex justify-center flex-row items-center 2xl:items-start"> <strong
               className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">Licencia Ambiental </strong><span
-              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Corporación Autónoma Regional del Cauca</span></span>
+              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Corporación Autónoma Regional del Cauca</span></span>
         </section>
       </span>
             <span
-                className={`h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 md:pb-20 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInDownBig' : 'animate__animated animate__fadeOutDownBig' : ''}`}>
-      <h2 className="text-xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Ubicación</h2>
+                className={`lg:h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 md:pb-20 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInDownBig' : 'animate__animated animate__fadeOutDownBig' : ''}`}>
+      <h2 className="text-3xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Ubicación</h2>
         <section
-            className=" md:flex md:flex-row md:items-center xl:items-start text-xl gap-4 w-full justify-center items-center">
+            className=" flex flex-col md:flex-row items-center xl:items-start text-xl gap-16 lg:gap-4 w-full justify-center">
           <span
               className="md:border-r-2 md:w-[25%] px-4 md:px-8 flex items-center gap-4 flex-row-reverse md:flex-row justify-end md:justify-start"><strong>Cauca - Colombia</strong><Image
               className="w-20" src={'/icons/cauca.png'} width={1920} height={1920} alt="Cauca"/> </span>
           <span
-              className="md:border-r-2 px-4 pr-8 flex justify-center flex-col md:flex-row md:items-center 2xl:items-start"><strong
+              className="md:border-r-2 px-4 lg:pr- 8 flex justify-center flex-col md:flex-row items-center 2xl:items-start"><strong
               className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-6xl mr-4 flex items-end">+{co2} <span
               className="text-lg 2xl:text-xl 2xl:pb-1"> ton. CO2</span></strong> <span
-              className="w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Prevenidas</span></span>
-          <span className="md:w-[25%] px-4 md:px-8 flex justify-end"><strong
-              className="2xl:text-6xl lg:text-3xl xl:text-4xl mr-4 flex">{hectareas} </strong>Hectáreas de terreno</span>
+              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Prevenidas</span></span>
+          <span className="md:w-[25%] px-4 md:px-8 flex justify-center lg:justify-end"><strong
+              className="2xl:text-6xl lg:text-3xl xl:text-4xl LG:mr-4 flex">{hectareas} </strong>Hectáreas de terreno</span>
         </section>
       </span>
             {
@@ -655,12 +670,12 @@ export default function Home() {
           </section>
           <section id="contact" className="h-screen w-screen flex relative flex-col-reverse md:flex-row">
             <section
-                className="md:w-1/2 h-full px-14 my-auto relative flex flex-col md:flex-row justify-center items-center bg-primary gap-6 md:gap-0">
+                className="w-full md:w-1/2 h-full px-14 my-auto relative flex flex-col md:flex-row justify-center items-center bg-primary gap-6 md:gap-0">
               <Image
                   className={`h-32 w-auto md:absolute top-24 left-1/2 md:-translate-x-1/2 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__rollOut' : ''}`}
                   src={'/icons/logo-ligth.png'} width={620} height={449} alt=""/>
               <form
-                  className={`flex flex-col gap-1 md:gap-8 md:w-2/3 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__slideInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
+                  className={`flex flex-col gap-1 md:gap-8 w-full md:w-2/3 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__slideInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
                 <h4 className="text-center mt-0 md:mt-56 xl:mt-32 text-xl md:text-2xl xl:text-3xl text-white">Contáctanos</h4>
                 <input className="px-4 py-2 bg-transparent border-b-2 border-tertiary rounded-tr-xl text-white"
                        type="text" placeholder="Nombre"/>
