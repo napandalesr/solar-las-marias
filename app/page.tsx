@@ -457,7 +457,7 @@ export default function Home() {
                 </SwiperSlide>
               </Swiper>
             </section>
-            <section className="flex items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-24 2xl:pt-44">
+            <section className="flex md:flex-col lg:flex-row items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-24 2xl:pt-44">
               <section className={`flex flex-col items-start justify-start text-primary md:ml-8 px-4 md:px-0 ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}>
                 <h4 className="font-black text-2xl xl:text-3xl uppercase">A qué le Apostamos</h4>
                 <span className={`md:-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-2/3 md:w-[42rem] ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}/>
@@ -499,51 +499,53 @@ export default function Home() {
                   </li>
                 </ul>
               </section>
-              <section
-                  className={`hidden md:block relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] 2xl:w-[28rem] h-[24rem] 2xl:h-[32rem] overflow-clip rounded-2xl ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__rotateIn' : 'animate__animated animate__rotateOut' : ''}`}>
-                {
-                  project === 0 ? (
-                      <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
-                             className={"absolute top-0 left-0 w-au h-full object-cover"}/>
-                  ) : project === 1 ? (
-                      <Image src={"/images/solar2.png"} alt={""} width={1280} height={1536}
-                             className={"absolute top-0 left-0 w-full h-full object-cover"}/>
-                  ) : (
-                      <Image src={"/images/solar3.png"} alt={""} width={1280} height={1536}
-                             className={"absolute top-0 left-0 w-full h-full object-cover"}/>
-                  )
-                }
-              </section>
-              <section className={`hidden md:block ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInRight' : 'animate__animated animate__fadeOutRight' : ''}`}>
-                {
-                  project === 0 ? (
-                      <div
-                          className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                        <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso con<br/>el medio
-                          ambiente</h2>
-                        <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Diseñada para minimizar el impacto
-                          ambiental, utilizando tecnología de punta para generar energía renovable de manera eficiente y
-                          responsable.</p>
-                      </div>
-                  ) : project === 1 ? (
-                      <div
-                          className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                        <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Innovación<br/>y futuro</h2>
-                        <p className={"text-lg 2xl:text-2xl text-neutral-500"}>En la Granja Solar Las Marías, apostamos
-                          por la innovación constante para ofrecer soluciones energéticas avanzadas que no solo
-                          beneficien a nuestros clientes, sino también a las generaciones futuras.</p>
-                      </div>
-                  ) : (
-                      <div
-                          className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                        <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso<br/>social</h2>
-                        <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Un proyecto que impulsa el conocimiento,
-                          hace crecer la economía, contribuye a reducir las brechas de desigualdad, tecnología,
-                          ambiental y social.</p>
-                      </div>
-                  )
-                }
-              </section>
+              <div className={"hidden md:flex items-start justify-center gap-6 xl:gap-16"}>
+                <section
+                    className={`relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] 2xl:w-[28rem] h-[24rem] 2xl:h-[32rem] overflow-clip rounded-2xl ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__rotateIn' : 'animate__animated animate__rotateOut' : ''}`}>
+                  {
+                    project === 0 ? (
+                        <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
+                               className={"absolute top-0 left-0 w-au h-full object-cover"}/>
+                    ) : project === 1 ? (
+                        <Image src={"/images/solar2.png"} alt={""} width={1280} height={1536}
+                               className={"absolute top-0 left-0 w-full h-full object-cover"}/>
+                    ) : (
+                        <Image src={"/images/solar3.png"} alt={""} width={1280} height={1536}
+                               className={"absolute top-0 left-0 w-full h-full object-cover"}/>
+                    )
+                  }
+                </section>
+                <section className={`hidden md:block ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInRight' : 'animate__animated animate__fadeOutRight' : ''}`}>
+                  {
+                    project === 0 ? (
+                        <div
+                            className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
+                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso con<br/>el medio
+                            ambiente</h2>
+                          <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Diseñada para minimizar el impacto
+                            ambiental, utilizando tecnología de punta para generar energía renovable de manera eficiente y
+                            responsable.</p>
+                        </div>
+                    ) : project === 1 ? (
+                        <div
+                            className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
+                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Innovación<br/>y futuro</h2>
+                          <p className={"text-lg 2xl:text-2xl text-neutral-500"}>En la Granja Solar Las Marías, apostamos
+                            por la innovación constante para ofrecer soluciones energéticas avanzadas que no solo
+                            beneficien a nuestros clientes, sino también a las generaciones futuras.</p>
+                        </div>
+                    ) : (
+                        <div
+                            className={"flex flex-col items-start justify-start gap-6 w-[28rem] xl:w-[34rem] text-start pt-16"}>
+                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso<br/>social</h2>
+                          <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Un proyecto que impulsa el conocimiento,
+                            hace crecer la economía, contribuye a reducir las brechas de desigualdad, tecnología,
+                            ambiental y social.</p>
+                        </div>
+                    )
+                  }
+                </section>
+              </div>
             </section>
             {
                 screenWith > 760 &&
