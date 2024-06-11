@@ -333,7 +333,7 @@ export default function Home() {
           <section className="relative h-screen w-screen" id="top">
             <Image
                 className={`h-screen w-full object-cover hidden md:block ${screenWith > 760 ? navBar == 'top' ? 'animate__animated animate__bounceInUp' : 'animate__animated animate__bounceOutUp' : ''}`}
-                src={'/images/solar.jpeg'} quality={100} width={6000} height={3600} alt=""/>
+                src={'/images/solar_better.jpg'} quality={100} width={6000} height={3600} alt=""/>
             <span
                 className="absolute mx-14 md:mx-0 mt-8 md:mt-0 md:left-auto md:translate-x-0 top-[20vh] text-white text-center md:text-right md:right-[5vw] z-10 md:w-[60%] md:mr-8">
               <h1 className={`font-bold text-4xl md:text-7xl xl:text-8xl ${screenWith > 760 ? navBar == 'top' && 'animate__animated animate__fadeInDown' : ''}`}>Solar Las Marías</h1>
