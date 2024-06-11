@@ -650,9 +650,9 @@ export default function Home() {
               className="w-20" src={'/icons/cauca.png'} width={1920} height={1920} alt="Cauca"/> </span>
           <span
               className="lg:border-r-2 px-4 lg:pr- 8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">+{co2} <span
-              className="text-lg 2xl:text-xl 2xl:pb-1"> ton. CO2</span></strong> <span
-              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base md:text-xl 2xl:text-inherit">Prevenidas</span></span>
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">+{co2.toLocaleString()} <span
+              className="text-lg 2xl:text-xl 2xl:pb-1">&nbsp;ton. CO2</span></strong> <span
+              className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 md:text-xl 2xl:text-inherit">Prevenidas</span></span>
           <span className="md:w-[25%] px-4 md:px-8 flex flex-col lg:flex-row items-center text-center lg:text-start justify-center lg:justify-end gap-2 lg:gap-0"><strong
               className="text-4xl lg:text-3xl xl:text-4xl lg:mr-4">{hectareas} </strong> Hectáreas de terreno</span>
         </section>
@@ -728,16 +728,8 @@ export default function Home() {
       </span>
           <section
               className={`bg-primary h-[70vh] md:h-[60vh] absolute w-full bottom-0 p-4 md:p-20 flex flex-col md:flex-row text-white ${screenWith > 760 ? navBar == 'footer' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut' : ''}`}>
-        <span className="md:w-1/2 absolute md:relative right-4 flex flex-col md:flex-col">
-          <Image className="w-24 md:w-40 xl:w-60" src={'/icons/logo-ligth.png'} width={620} height={449} alt="Logo"/>
-          <span className="flex flex-col items-end md:flex-row md:gap-5 md:my-8 xl:mt-4">
-            <Link href={''}><Whatsapp className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Youtube className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Facebook className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Linkedin className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Instagram className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
-            <Link href={''}><Twitter className={"aspect-square h-10 2xl:h-auto"} color="#fff" size={25}/></Link>
-          </span>
+        <span className="md:w-1/2 absolute bottom-56 md:bottom-auto md:left-auto md:relative left-4 flex flex-col md:flex-col">
+          <Image className="w-32 md:w-40 xl:w-60" src={'/icons/logo-ligth.png'} width={620} height={449} alt="Logo"/>
         </span>
             <span className="flex flex-col gap-8 md:text-base xl:text-xl w-1/3">
           <Link href={''}>Sobre nosotros</Link>
