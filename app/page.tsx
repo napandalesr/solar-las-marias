@@ -304,7 +304,7 @@ export default function Home() {
       if (scrollValue > 0) {
         if (current < 5)
           current += 1;
-      } else {
+      } else if (current > 0) {
         current -= 1;
       }
       if (current < 0) current = 0;
@@ -327,23 +327,23 @@ export default function Home() {
         <Header location={navBar} setNavBar={setNavBar}/>
         <main className="w-screen">
           <Link onClick={() => setNavBar('top')}
-                className={`${screenWith > 760 && 'animate__animated animate__fadeInUp'} ${navBar === 'top' && 'hidden'} fixed right-12 bottom-12 z-30`}
+                className={`${screenWith > 760 && ' animate__fadeInUp'} ${navBar === 'top' && 'hidden'} fixed right-12 bottom-12 z-30`}
                 href={'#top'}><ArrowDownSquareFill
               className={`${navBar === "projects" ? "text-tertiary" : "text-secundary"} rotate-180`} size={50}/></Link>
           <section className="relative h-screen w-screen" id="top">
             <Image
-                className={`h-screen w-full object-cover hidden md:block ${screenWith > 760 ? navBar == 'top' ? 'animate__animated animate__bounceInUp' : 'animate__animated animate__bounceOutUp' : ''}`}
+                className={`h-screen w-full object-cover hidden md:block ${screenWith > 760 ? navBar == 'top' ? ' animate__bounceInUp' : ' animate__bounceOutUp' : ''}`}
                 src={'/images/solar_better.jpg'} quality={100} width={6000} height={3600} alt=""/>
             <span
                 className="absolute mx-14 md:mx-0 mt-8 md:mt-0 md:left-auto md:translate-x-0 top-[20vh] text-white text-center md:text-right md:right-[5vw] z-10 md:w-[60%] md:mr-8">
-              <h1 className={`font-bold text-4xl md:text-7xl xl:text-8xl ${screenWith > 760 ? navBar == 'top' && 'animate__animated animate__fadeInDown' : ''}`}>Solar Las Marías</h1>
-              <p className={`md:text-xl xl:text-2xl mt-4 font-medium md:pl-36 max-w-[920px] float-right ${screenWith > 760 ? navBar === 'top' && 'animate__animated animate__fadeInDown' : ''}`}>
+              <h1 className={`font-bold text-4xl md:text-7xl xl:text-8xl ${screenWith > 760 ? navBar == 'top' && ' animate__fadeInDown' : ''}`}>Solar Las Marías</h1>
+              <p className={`md:text-xl xl:text-2xl mt-4 font-medium md:pl-36 max-w-[920px] float-right ${screenWith > 760 ? navBar === 'top' && ' animate__fadeInDown' : ''}`}>
                 Una solución energética que se construye aprovechando el poder del sol y las mejores
                 tecnologías para dar al servicio de los colombianos 99.5 megas de energía sostenible.
               </p>
             </span>
             <Image
-                className={`z-0 h-screen object-cover md:hidden ${screenWith > 760 ? navBar == 'top' ? 'animate__animated animate__bounceInUp' : 'animate__animated animate__bounceOutUp' : ''}`}
+                className={`z-0 h-screen object-cover md:hidden ${screenWith > 760 ? navBar == 'top' ? ' animate__bounceInUp' : ' animate__bounceOutUp' : ''}`}
                 src={'/images/solar11.jpg'} width={6000} height={3600} alt=""/>
             <span
                 className="bg-gradient-to-bl from-black/30 to-transparent absolute top-0 left-0 right-0 bottom-0 z-0"/>
@@ -351,7 +351,7 @@ export default function Home() {
             {
                 screenWith > 760 && <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] Z-50">
                   <Link href={'#about'} onClick={() => setNavBar('about')}><ArrowDownCircle
-                    className="text-white animate__animated animate__fadeInUpBig !animate-float-up-sm Z-50"
+                    className="text-white  animate__fadeInUpBig !animate-float-up-sm Z-50"
                     size={60}/> </Link>
                 </span>
             }
@@ -359,33 +359,33 @@ export default function Home() {
           <section className="relative w-full" id="about">
             <span
                 className="z-10 w-full absolute top-6 md:top-[20vh] xl:top-[24vh] text-primary left-8 md:left-16 xl:left-24 flex flex-col items-start justify-start gap-8">
-              <p className={`md:text-2xl lg:text-3xl 2xl:text-4xl md:mt-4 w-1/2 md:w-[35%] xl:w-[37%] ${screenWith > 760 ? navBar == 'about' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
+              <p className={`md:text-2xl lg:text-3xl 2xl:text-4xl md:mt-4 w-1/2 md:w-[35%] xl:w-[37%] ${screenWith > 760 ? navBar == 'about' ? ' animate__fadeInLeft' : ' animate__slideOutLeft' : ''}`}>
                 En una extensión de 200 hectáreas bordeadas por el Río Guachicono, <strong>la Granja Solar Las Marías se reconoce hoy como la solución Solar más grande del Suroccidente colombiano</strong>.
               </p>
               <Link href={"#contact"}
-                    className={`rounded-3xl bg-primary text-white text-lg xl:text-xl font-medium shadow-lg px-6 py-2 ${screenWith > 760 ? navBar == 'about' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>Contáctanos</Link>
+                    className={`rounded-3xl bg-primary text-white text-lg xl:text-xl font-medium shadow-lg px-6 py-2 ${screenWith > 760 ? navBar == 'about' ? ' animate__fadeInLeft' : ' animate__slideOutLeft' : ''}`}>Contáctanos</Link>
             </span>
             <Image
-                className={`z-0 h-screen object-cover ${screenWith > 760 ? navBar === 'about' ? 'animate__animated animate__fadeInRight' : 'animate__animated animate__fadeOutRight' : ''}`}
+                className={`z-0 h-screen object-cover ${screenWith > 760 ? navBar === 'about' ? ' animate__fadeInRight' : ' animate__fadeOutRight' : ''}`}
                 src={'/images/solar2.jpg'} width={6000} height={3600} alt=""/>
             {
                 screenWith > 760 &&
               <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
                 <Link onClick={() => setNavBar('top')} className="rotate-180" href={'#top'}><ArrowDownCircle
-                  className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
+                  className=" animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#fff"/> </Link>
                 <Link href={'#projects'} onClick={() => setNavBar('projects')}><ArrowDownCircle
-                  className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
+                  className=" animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#fff"/> </Link>
               </span>
             }
           </section>
           <section id="projects" className="md:h-screen text-center relative bg-white">
             <section
-                className={`hidden md:text-xs xl:text-base md:flex lg:items-center w-screen h-[20vh] border-2 text-left z-10 relative text-primary top-[10vh] ${screenWith > 760 ? navBar == 'projects' ? 'animate__animated animate__flipInX' : 'animate__animated animate__flipOutX' : ''}`}>
+                className={`hidden md:text-xs xl:text-base md:flex lg:items-center w-screen h-[20vh] border-2 text-left z-10 relative text-primary top-[10vh] ${screenWith > 760 ? navBar == 'projects' ? ' animate__flipInX' : ' animate__flipOutX' : ''}`}>
               <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
-                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon1.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p className={"text-center lg:text-start"}>Seremos la ventana a la <strong className={"italic"}>transición energética del Departamento del Cauca.</strong></p>
@@ -394,7 +394,7 @@ export default function Home() {
               <span className={"w-0.5 h-4/5 bg-gray-400 my-6 lg:my-auto"}/>
               <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
-                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon2.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p className={"text-center lg:text-start"}>
@@ -405,7 +405,7 @@ export default function Home() {
               <span className={"w-0.5 h-4/5 bg-gray-400 my-6 lg:my-auto"}/>
               <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
-                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon3.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p className={"text-center lg:text-start"}>
@@ -417,7 +417,7 @@ export default function Home() {
               <span className={"w-0.5 h-4/5 bg-gray-400 my-6 lg:my-auto"}/>
               <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
-                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && 'animate__animated animate__swing' : ''}`}
+                    className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon4.png" alt="" width={512} height={512}/>
                 <span className="flex flex-col">
                   <p className={"text-center lg:text-start"}>
@@ -435,7 +435,7 @@ export default function Home() {
                   navigation
                   pagination={{clickable: true}}
                   mousewheel
-                  className={` mt-8 text-left w-full ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUpBig' : ''}`}
+                  className={` mt-8 text-left w-full ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInUp' : ' animate__fadeOutUpBig' : ''}`}
               >
                 <button onClick={() => swiper.slideNext()}></button>
                 <SwiperSlide className={`!w-60 md:!w-96 relative`}>
@@ -458,9 +458,9 @@ export default function Home() {
               </Swiper>
             </section>
             <section className="flex md:flex-col lg:flex-row items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-40 md:px-8 lg:px-0 2xl:pt-32">
-              <section className={`flex flex-col items-start justify-start text-primary md:ml-8 px-6 md:px-0 ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}>
+              <section className={`flex flex-col items-start justify-start text-primary md:ml-8 px-6 md:px-0 ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInLeft' : ' animate__fadeOutLeft' : ''}`}>
                 <h4 className="font-black text-2xl xl:text-3xl uppercase">A qué le Apostamos</h4>
-                <span className={`md:-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-2/3 md:w-[42rem] ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}/>
+                <span className={`md:-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-2/3 md:w-[42rem] ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInLeft' : ' animate__fadeOutLeft' : ''}`}/>
                 <section className="md:hidden w-full mt-8 text-left mb-10">
                   <p className="text-base font-medium">- Compromiso con el medio ambiente</p>
                   <p className={"text-sm text-neutral-500 mb-4"}>Diseñada para minimizar el impacto
@@ -501,7 +501,7 @@ export default function Home() {
               </section>
               <div className={"hidden md:flex items-start justify-center gap-6 xl:gap-16"}>
                 <section
-                    className={`relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] 2xl:w-[28rem] h-[24rem] 2xl:h-[32rem] overflow-clip rounded-2xl ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__rotateIn' : 'animate__animated animate__rotateOut' : ''}`}>
+                    className={`relative border-l-8 border-r-8 border-l-yelow border-r-yelow w-[20rem] 2xl:w-[28rem] h-[24rem] 2xl:h-[32rem] overflow-clip rounded-2xl ${screenWith > 760 ? navBar === 'projects' ? ' animate__rotateIn' : ' animate__rotateOut' : ''}`}>
                   {
                     project === 0 ? (
                         <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
@@ -515,7 +515,7 @@ export default function Home() {
                     )
                   }
                 </section>
-                <section className={`hidden md:block ${screenWith > 760 ? navBar === 'projects' ? 'animate__animated animate__fadeInRight' : 'animate__animated animate__fadeOutRight' : ''}`}>
+                <section className={`hidden md:block ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInRight' : ' animate__fadeOutRight' : ''}`}>
                   {
                     project === 0 ? (
                         <div
@@ -551,10 +551,10 @@ export default function Home() {
                 screenWith > 760 &&
               <span className="absolute right-72 xl:right-[28rem] bottom-[8vh] md:bottom-[4vh] flex gap-4">
                 <Link onClick={() => setNavBar('about')} className="rotate-180" href={'#about'}><ArrowDownCircle
-                  className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
+                  className=" animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#19255B"/> </Link>
                 <Link href={'#capacity'} onClick={() => setNavBar('capacity')}><ArrowDownCircle
-                  className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
+                  className="text-white  animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
                   color="#19255B"/> </Link>
               </span>
             }
@@ -564,7 +564,7 @@ export default function Home() {
               className={`md:h-screen relative flex md:text-center justify-start flex-col bg-green md:pt-16 xl:pt-0`}
               id="capacity">
       <span
-          className={`lg:h-[40vh] flex flex-col items-center justify-center bg-primary text-white py-8 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+          className={`lg:h-[40vh] flex flex-col items-center justify-center bg-primary text-white py-8 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? ' animate__fadeInUpBig' : ' animate__fadeOutTopLeft' : ''}`}>
         <h2 className="text-3xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
         <section ref={elementRef}
                  className="text-center lg:text-start flex-wrap flex md:grid md:grid-cols-2 lg:grid-cols-4 md:justify-items-center text-xl gap-16 md:gap-12 lg:gap-6 w-full justify-center mt-4 px-4 md:px-0">
@@ -617,7 +617,7 @@ export default function Home() {
         </section>
       </span>
             <span
-                className={`w-full md:h-[30vh] flex-wrap flex flex-col items-center justify-center bg-tertiary text-white py-8 lg:pt-0 lg:pb-8 text-left md:px-8 lg:px-2 xl:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInUpBig' : 'animate__animated animate__fadeOutTopLeft' : ''}`}>
+                className={`w-full md:h-[30vh] flex-wrap flex flex-col items-center justify-center bg-tertiary text-white py-8 lg:pt-0 lg:pb-8 text-left md:px-8 lg:px-2 xl:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? ' animate__fadeInUpBig' : ' animate__fadeOutTopLeft' : ''}`}>
         <section ref={elementRef}
                  className="flex-wrap flex lg:grid lg:grid-cols-4 lg:flex-row text-xl gap-y-16 gap-x-2 lg:!gap-6 w-full justify-center mt-4 px-4 md:px-0">
           <span
@@ -641,7 +641,7 @@ export default function Home() {
         </section>
       </span>
             <span
-                className={`lg:h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 lg:pb-16 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInDownBig' : 'animate__animated animate__fadeOutDownBig' : ''}`}>
+                className={`lg:h-[30vh] flex flex-col items-center justify-center bg-green text-white pb-8 pt-8 lg:pb-16 text-left px-4 ${screenWith > 760 ? navBar === 'capacity' ? ' animate__fadeInDownBig' : ' animate__fadeOutDownBig' : ''}`}>
       <h2 className="text-3xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Ubicación</h2>
         <section
             className=" flex flex-col md:flex-row flex-wrap items-center xl:items-start text-xl gap-16 md:gap-4 w-full justify-center">
@@ -661,10 +661,10 @@ export default function Home() {
                 screenWith > 760 &&
               <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
           <Link onClick={() => setNavBar('projects')} className="rotate-180" href={'#projects'}><ArrowDownCircle
-            className="animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
+            className=" animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
             color="#fff"/> </Link>
           <Link href={'#contact'} onClick={() => setNavBar('contact')}><ArrowDownCircle
-            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
+            className="text-white  animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
         </span>
             }
@@ -674,10 +674,10 @@ export default function Home() {
             <section
                 className="w-full md:w-1/2 h-full px-14 my-auto relative flex flex-col md:flex-row justify-center items-center bg-primary gap-6 md:gap-0">
               <Image
-                  className={`h-32 w-auto md:absolute top-24 md:top-44 lg:top-24 left-1/2 md:-translate-x-1/2 ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__rollOut' : ''}`}
+                  className={`h-32 w-auto md:absolute top-24 md:top-44 lg:top-24 left-1/2 md:-translate-x-1/2 ${screenWith > 760 ? navBar === 'contact' ? ' animate__zoomIn' : ' animate__rollOut' : ''}`}
                   src={'/icons/logo-ligth.png'} width={620} height={449} alt=""/>
               <form
-                  className={`flex flex-col gap-1 md:gap-8 w-full ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__slideInLeft' : 'animate__animated animate__slideOutLeft' : ''}`}>
+                  className={`flex flex-col gap-1 md:gap-8 w-full ${screenWith > 760 ? navBar === 'contact' ? ' animate__slideInLeft' : ' animate__slideOutLeft' : ''}`}>
                 <h4 className="text-center mt-0 md:mt-56 xl:mt-32 text-xl md:text-2xl xl:text-3xl text-white">Contáctanos</h4>
                 <input className="px-4 py-2 bg-transparent border-b-2 border-tertiary rounded-tr-xl text-white"
                        type="text" placeholder="Nombre"/>
@@ -691,7 +691,7 @@ export default function Home() {
               </form>
             </section>
             <section
-                className={`w-[65%] hidden md:block ${screenWith > 760 ? navBar === 'contact' ? 'animate__animated animate__slideInRight' : 'animate__animated animate__slideOutRight' : ''}`}>
+                className={`w-[65%] hidden md:block ${screenWith > 760 ? navBar === 'contact' ? ' animate__slideInRight' : ' animate__slideOutRight' : ''}`}>
               <video className="object-cover h-screen  brightness-50 object-top" muted autoPlay loop
                      src="/videos/solar2.mp4"></video>
             </section>
@@ -699,10 +699,10 @@ export default function Home() {
                 screenWith > 760 &&
               <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
           <Link className="rotate-180" href={'#capacity'} onClick={() => setNavBar('capacity')}><ArrowDownCircle
-            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
+            className="text-white  animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
           <Link href={'#footer'} onClick={() => setNavBar('footer')}><ArrowDownCircle
-            className="text-white animate__animated animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
+            className="text-white  animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
         </span>
             }
@@ -711,23 +711,23 @@ export default function Home() {
         </main>
         <footer className="h-[60vh] md:h-screen flex flex-col relative" id="footer">
       <span
-          className={`bg-primary border-b-2 md:h-[40vh] relative px-2 ${screenWith > 760 ? navBar == 'footer' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut' : ''}`}>
+          className={`bg-primary border-b-2 md:h-[40vh] relative px-2 ${screenWith > 760 ? navBar == 'footer' ? ' animate__zoomIn' : ' animate__zoomOut' : ''}`}>
         {
             screenWith > 760 && <>
             <Link className="rotate-180 hidden md:block absolute left-1/2 -translate-x-1/2 top-[10vh]" href={'#contact'}
                   onClick={() => setNavBar('contact')}>
               <ArrowDownCircle
-                className="h-32 xl:h-auto text-white animate__animated animate__fadeInUpBig !animate-float-up-sm" size={180}/>
+                className="h-32 xl:h-auto text-white  animate__fadeInUpBig !animate-float-up-sm" size={180}/>
             </Link>
             <Link className="rotate-180 absolute left-1/2 -translate-x-1/2 top-8 md:top-[10vh] md:hidden"
                   href={'#contact'} onClick={() => setNavBar('contact')}>
-              <ArrowDownCircle className="text-white animate__animated animate__fadeInUpBig" size={80}/>
+              <ArrowDownCircle className="text-white  animate__fadeInUpBig" size={80}/>
             </Link>
           </>
         }
       </span>
           <section
-              className={`bg-primary h-[70vh] md:h-[60vh] absolute w-full bottom-0 p-4 md:p-20 flex flex-col md:flex-row text-white ${screenWith > 760 ? navBar == 'footer' ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut' : ''}`}>
+              className={`bg-primary h-[70vh] md:h-[60vh] absolute w-full bottom-0 p-4 md:p-20 flex flex-col md:flex-row text-white ${screenWith > 760 ? navBar == 'footer' ? ' animate__zoomIn' : ' animate__zoomOut' : ''}`}>
         <span className="md:w-1/2 absolute bottom-56 md:bottom-auto md:left-auto md:relative left-4 flex flex-col md:flex-col">
           <Image className="w-32 md:w-40 xl:w-60" src={'/icons/logo-ligth.png'} width={620} height={449} alt="Logo"/>
         </span>
