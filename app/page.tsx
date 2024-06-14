@@ -4,16 +4,7 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import {Swiper, SwiperSlide, useSwiper} from 'swiper/react';
 import {Navigation} from 'swiper/modules';
-import {
-  ArrowDownCircle,
-  ArrowDownSquareFill,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Whatsapp,
-  Youtube
-} from "react-bootstrap-icons";
+import {ArrowDownCircle, ArrowDownSquareFill, Linkedin, TwitterX} from "react-bootstrap-icons";
 import 'animate.css';
 
 import 'swiper/css';
@@ -296,19 +287,21 @@ export default function Home() {
       1: "about",
       2: "projects",
       3: "capacity",
-      4: "contact",
-      5: "footer"
+      4: "news",
+      5: "contact",
+      6: "footer"
     }
     let current = currentSlide;
-    if (Math.abs(scrollValue) >= 5) {
+    let MAX = 6;
+    if (Math.abs(scrollValue) >= MAX) {
       if (scrollValue > 0) {
-        if (current < 5)
+        if (current < MAX)
           current += 1;
       } else if (current > 0) {
         current -= 1;
       }
       if (current < 0) current = 0;
-      if (current > 5) current = 5;
+      if (current > MAX) current = MAX;
       setNavBar(dictionary[current]);
       scrollTo(0, current * viewportHeight);
       setCurrentSlide(current);
@@ -329,7 +322,7 @@ export default function Home() {
           <Link onClick={() => setNavBar('top')}
                 className={`${screenWith > 760 && ' animate__fadeInUp'} ${navBar === 'top' && 'hidden'} fixed right-12 bottom-12 z-30`}
                 href={'#top'}><ArrowDownSquareFill
-              className={`${navBar === "projects" ? "text-tertiary" : "text-secundary"} rotate-180`} size={50}/></Link>
+              className={`transition-all duration-500 ease-in-out ${navBar === "projects" || navBar === "news"  ? "text-tertiary" : "text-secundary"} rotate-180`} size={50}/></Link>
           <section className="relative h-screen w-screen" id="top">
             <Image
                 className={`h-screen w-full object-cover hidden md:block ${screenWith > 760 ? navBar == 'top' ? ' animate__bounceInUp' : ' animate__bounceOutUp' : ''}`}
@@ -349,7 +342,8 @@ export default function Home() {
                 className="bg-gradient-to-bl from-black/30 to-transparent absolute top-0 left-0 right-0 bottom-0 z-0"/>
 
             {
-                screenWith > 760 && <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] Z-50">
+                screenWith > 760 &&
+              <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] Z-50">
                   <Link href={'#about'} onClick={() => setNavBar('about')}><ArrowDownCircle
                     className="text-white  animate__fadeInUpBig !animate-float-up-sm Z-50"
                     size={60}/> </Link>
@@ -383,7 +377,8 @@ export default function Home() {
           <section id="projects" className="md:h-screen text-center relative bg-white">
             <section
                 className={`hidden md:text-xs xl:text-base md:flex lg:items-center w-screen h-[20vh] border-2 text-left z-10 relative text-primary top-[10vh] ${screenWith > 760 ? navBar == 'projects' ? ' animate__flipInX' : ' animate__flipOutX' : ''}`}>
-              <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
+              <span
+                  className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
                     className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon1.png" alt="" width={512} height={512}/>
@@ -392,7 +387,8 @@ export default function Home() {
                 </span>
               </span>
               <span className={"w-0.5 h-4/5 bg-gray-400 my-6 lg:my-auto"}/>
-              <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
+              <span
+                  className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
                     className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon2.png" alt="" width={512} height={512}/>
@@ -403,7 +399,8 @@ export default function Home() {
                 </span>
               </span>
               <span className={"w-0.5 h-4/5 bg-gray-400 my-6 lg:my-auto"}/>
-              <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
+              <span
+                  className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
                     className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon3.png" alt="" width={512} height={512}/>
@@ -415,7 +412,8 @@ export default function Home() {
                 </span>
               </span>
               <span className={"w-0.5 h-4/5 bg-gray-400 my-6 lg:my-auto"}/>
-              <span className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
+              <span
+                  className="w-1/4 flex gap-x-4 flex-col lg:flex-row justify-start lg:justify-center px-4 items-center">
                 <Image
                     className={`h-auto w-28 ${screenWith > 760 ? navBar == 'projects' && ' animate__swing' : ''}`}
                     src="/icons/icon4.png" alt="" width={512} height={512}/>
@@ -457,29 +455,32 @@ export default function Home() {
                 </SwiperSlide>
               </Swiper>
             </section>
-            <section className="flex md:flex-col lg:flex-row items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-40 md:px-8 lg:px-0 2xl:pt-32">
-              <section className={`flex flex-col items-start justify-start text-primary md:ml-8 px-6 md:px-0 ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInLeft' : ' animate__fadeOutLeft' : ''}`}>
+            <section
+                className="flex md:flex-col lg:flex-row items-start justify-center gap-6 xl:gap-16 pt-8 md:pt-40 md:px-8 lg:px-0 2xl:pt-32">
+              <section
+                  className={`flex flex-col items-start justify-start text-primary md:ml-8 px-6 md:px-0 ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInLeft' : ' animate__fadeOutLeft' : ''}`}>
                 <h4 className="font-black text-2xl xl:text-3xl uppercase">A qué le Apostamos</h4>
-                <span className={`md:-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-2/3 md:w-[42rem] ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInLeft' : ' animate__fadeOutLeft' : ''}`}/>
+                <span
+                    className={`md:-ml-80 xl:-ml-72 bg-yelow h-1 rounded-xl w-2/3 md:w-[42rem] ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInLeft' : ' animate__fadeOutLeft' : ''}`}/>
                 <section className="md:hidden w-full mt-8 text-left mb-10">
                   <p className="text-base font-medium">- Compromiso con el medio ambiente</p>
                   <p className={"text-sm text-neutral-500 mb-4"}>Diseñada para minimizar el impacto
                     ambiental, utilizando tecnología de punta para generar energía renovable de manera eficiente y
                     responsable.</p>
-                    <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
-                        className={"w-full rounded"}/>
+                  <Image src={"/images/solar1.png"} alt={""} width={1280} height={1536}
+                         className={"w-full rounded"}/>
                   <p className="text-base font-medium mt-4">- Innovación y futuro</p>
                   <p className={"text-sm text-neutral-500 mb-4"}>En la Granja Solar Las Marías, apostamos
                     por la innovación constante para ofrecer soluciones energéticas avanzadas que no solo
                     beneficien a nuestros clientes, sino también a las generaciones futuras.</p>
                   <Image src={"/images/solar2.png"} alt={""} width={1280} height={1536}
-                      className={"w-full rounded"}/>
+                         className={"w-full rounded"}/>
                   <p className="text-base font-medium mt-4">- Compromiso social</p>
                   <p className={"text-sm text-neutral-500 mb-4"}>Un proyecto que impulsa el conocimiento,
                     hace crecer la economía, contribuye a reducir las brechas de desigualdad, tecnología,
                     ambiental y social.</p>
-                    <Image src={"/images/solar3.png"} alt={""} width={1280} height={1536}
-                      className={"w-full rounded"}/>
+                  <Image src={"/images/solar3.png"} alt={""} width={1280} height={1536}
+                         className={"w-full rounded"}/>
                 </section>
                 <ul className={"hidden md:flex flex-col items-start justify-start gap-2 list-disc text-lg xl:text-xl mt-4"}>
                   <li>
@@ -515,30 +516,37 @@ export default function Home() {
                     )
                   }
                 </section>
-                <section className={`hidden md:block ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInRight' : ' animate__fadeOutRight' : ''}`}>
+                <section
+                    className={`hidden md:block ${screenWith > 760 ? navBar === 'projects' ? ' animate__fadeInRight' : ' animate__fadeOutRight' : ''}`}>
                   {
                     project === 0 ? (
                         <div
                             className={"flex flex-col items-start justify-start gap-6 w-96 lg:w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso con<br/>el medio
+                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso
+                            con<br/>el medio
                             ambiente</h2>
                           <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Diseñada para minimizar el impacto
-                            ambiental, utilizando tecnología de punta para generar energía renovable de manera eficiente y
+                            ambiental, utilizando tecnología de punta para generar energía renovable de manera eficiente
+                            y
                             responsable.</p>
                         </div>
                     ) : project === 1 ? (
                         <div
                             className={"flex flex-col items-start justify-start gap-6 w-96 lg:w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Innovación<br/>y futuro</h2>
-                          <p className={"text-lg 2xl:text-2xl text-neutral-500"}>En la Granja Solar Las Marías, apostamos
+                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Innovación<br/>y
+                            futuro</h2>
+                          <p className={"text-lg 2xl:text-2xl text-neutral-500"}>En la Granja Solar Las Marías,
+                            apostamos
                             por la innovación constante para ofrecer soluciones energéticas avanzadas que no solo
                             beneficien a nuestros clientes, sino también a las generaciones futuras.</p>
                         </div>
                     ) : (
                         <div
                             className={"flex flex-col items-start justify-start gap-6 w-96 lg:w-[28rem] xl:w-[34rem] text-start pt-16"}>
-                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso<br/>social</h2>
-                          <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Un proyecto que impulsa el conocimiento,
+                          <h2 className={"font-black text-3xl lg:text-4xl 2xl:text-5xl text-primary"}>Compromiso<br/>social
+                          </h2>
+                          <p className={"text-lg 2xl:text-2xl text-neutral-500"}>Un proyecto que impulsa el
+                            conocimiento,
                             hace crecer la economía, contribuye a reducir las brechas de desigualdad, tecnología,
                             ambiental y social.</p>
                         </div>
@@ -650,10 +658,12 @@ export default function Home() {
               className="w-20" src={'/icons/cauca.png'} width={1920} height={1920} alt="Cauca"/> </span>
           <span
               className="lg:border-r-2 px-4 lg:pr- 8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">+{co2.toLocaleString()} <span
-              className="text-lg 2xl:text-xl 2xl:pb-1">&nbsp;ton. CO2</span></strong> <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">+{co2.toLocaleString()}
+            <span
+                className="text-lg 2xl:text-xl 2xl:pb-1">&nbsp;ton. CO2</span></strong> <span
               className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 md:text-xl 2xl:text-inherit">Prevenidas</span></span>
-          <span className="md:w-[25%] px-4 md:px-8 flex flex-col lg:flex-row items-center text-center lg:text-start justify-center lg:justify-end gap-2 lg:gap-0"><strong
+          <span
+              className="md:w-[25%] px-4 md:px-8 flex flex-col lg:flex-row items-center text-center lg:text-start justify-center lg:justify-end gap-2 lg:gap-0"><strong
               className="text-4xl lg:text-3xl xl:text-4xl lg:mr-4">{hectareas} </strong> Hectáreas de terreno</span>
         </section>
       </span>
@@ -663,8 +673,46 @@ export default function Home() {
           <Link onClick={() => setNavBar('projects')} className="rotate-180" href={'#projects'}><ArrowDownCircle
             className=" animate__fadeInUpBig aspect-square h-10 2xl:h-auto" size={60}
             color="#fff"/> </Link>
-          <Link href={'#contact'} onClick={() => setNavBar('contact')}><ArrowDownCircle
+          <Link href={'#news'} onClick={() => setNavBar('news')}><ArrowDownCircle
             className="text-white  animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
+            size={60}/> </Link>
+        </span>
+            }
+
+          </section>
+          <section id="news" className="h-screen w-screen flex relative flex-col-reverse md:flex-row bg-white">
+            <section
+                className={`w-full flex flex-row ${screenWith > 760 ? navBar === 'contact' ? ' animate__slideInRight' : ' animate__slideOutRight' : ''}`}>
+              <div className={"flex flex-col items-start justify-start gap-8 2xl:gap-12 w-full py-32 2xl:py-44 px-16 xl:px-32"}>
+                <h2 className={`text-primary font-bold text-3xl md:text-5xl 2xl:text-6xl ${screenWith > 760 ? navBar == 'top' && ' animate__fadeInDown' : ''}`}>Tras
+                  las huellas del Paraíso: Co-creamos la primera marca de territorio de Colombia</h2>
+                <p className={"text-neutral-500 text-lg md:text-xl 2xl:text-2xl max-w-[38rem]"}>En Marabunta Agencia Creativa seguimos muy de cerca el proceso legislativo que finalizó con la firma
+                  de la Ley 2345 en diciembre del 2023. Esta sentencia la conocimos mejor como “Ley Chao Marcas de
+                  Gobierno”, una iniciativa para evitar el gasto de presupuesto público en nuevas marcas para
+                  gobernaciones y municipios por cada mandato de turno.</p>
+                <ul className={"flex items-center justify-start gap-6"}>
+                  <li className={"bg-primary font-semibold text-white px-6 py-4 rounded-xl min-w-52 xl:min-w-64 box-border"}><Link
+                      className={"flex items-center justify-center gap-4"} href={"https://linkedin.com"}>Ver en
+                    Linkedin <Linkedin/></Link></li>
+                  <li className={"bg-primary font-semibold text-white px-6 py-4 rounded-xl min-w-52 xl:min-w-64 box-border"}><Link
+                      className={"flex items-center justify-center gap-4"} href={"https://twitter.com"}>Ver en
+                    X <TwitterX/></Link></li>
+                </ul>
+              </div>
+              <div className={"w-[60%] relative select-none pointer-events-none"}>
+                <Image src={"/images/solar11.jpg"} alt={"No c"} height={3012} width={2200} quality={100}
+                       className={"absolute object-cover top-0 left-0 h-full"}/>
+                <span className={"absolute w-full h-full bg-gradient-to-l from-black/50 via-black/10"}/>
+              </div>
+            </section>
+            {
+                screenWith > 760 &&
+              <span className="absolute lg:left-[56%] xl:left-1/2 left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
+          <Link className="rotate-180" href={'#capacity'} onClick={() => setNavBar('capacity')}><ArrowDownCircle
+            className="text-primary animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
+            size={60}/> </Link>
+          <Link href={'#contact'} onClick={() => setNavBar('contact')}><ArrowDownCircle
+            className="text-primary animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
         </span>
             }
@@ -698,7 +746,7 @@ export default function Home() {
             {
                 screenWith > 760 &&
               <span className="absolute left-1/2 -translate-x-1/2 bottom-[8vh] md:bottom-[2vh] flex gap-4">
-          <Link className="rotate-180" href={'#capacity'} onClick={() => setNavBar('capacity')}><ArrowDownCircle
+          <Link className="rotate-180" href={'#news'} onClick={() => setNavBar('news')}><ArrowDownCircle
             className="text-white  animate__fadeInUpBig aspect-square h-10 2xl:h-auto"
             size={60}/> </Link>
           <Link href={'#footer'} onClick={() => setNavBar('footer')}><ArrowDownCircle
@@ -728,7 +776,8 @@ export default function Home() {
       </span>
           <section
               className={`bg-primary h-[70vh] md:h-[60vh] absolute w-full bottom-0 p-4 md:p-20 flex flex-col md:flex-row text-white ${screenWith > 760 ? navBar == 'footer' ? ' animate__zoomIn' : ' animate__zoomOut' : ''}`}>
-        <span className="md:w-1/2 absolute bottom-56 md:bottom-auto md:left-auto md:relative left-4 flex flex-col md:flex-col">
+        <span
+            className="md:w-1/2 absolute bottom-56 md:bottom-auto md:left-auto md:relative left-4 flex flex-col md:flex-col">
           <Image className="w-32 md:w-40 xl:w-60" src={'/icons/logo-ligth.png'} width={620} height={449} alt="Logo"/>
         </span>
             <span className="flex flex-col gap-8 md:text-base xl:text-xl w-1/3">

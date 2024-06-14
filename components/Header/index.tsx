@@ -33,7 +33,10 @@ const Header = ({ location, setNavBar }: props) => {
           <Link href={'#about'} onClick={() => setNavBar('about')}>Nosotros</Link>
         </li>
         <li className={`transition-all duration-500 ease-in-out border-b-2 ${classLi} ${location === "projects" ? "border-b-white" : "border-b-transparent"}`}>
-          <Link href={'#projects'} onClick={()=>setNavBar('projects')}>Proyectos</Link>
+          <Link href={'#projects'} onClick={() => setNavBar('projects')}>Proyectos</Link>
+        </li>
+        <li className={`transition-all duration-500 ease-in-out border-b-2 ${classLi} ${location === "news" ? "border-b-white" : "border-b-transparent"}`}>
+          <Link href={'#news'} onClick={() => setNavBar('news')}>Noticias</Link>
         </li>
         <li className='w-[5vw]'></li>
       </ul>
