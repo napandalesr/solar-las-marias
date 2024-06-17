@@ -9,209 +9,23 @@ import 'animate.css';
 
 import 'swiper/css';
 import Link from "next/link";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
+import CounterAnimation from "@/components/CounterAnimation";
 
 export default function Home() {
   const [navBar, setNavBar] = useState("top");
-  const elementRef = useRef(null);
-  const [paneles, setPaneles] = useState(0);
-  const [irradiancia, setIrradiancia] = useState(0);
-  const [capacidad, setCapacidad] = useState(0);
-  const [factor, setFactor] = useState(0);
-  const [produccion, setProduccion] = useState(0);
-  const [mnw, setMnw] = useState(0);
-  const [operDia, setOperDia] = useState(0);
-  const [operMes, setOperMes] = useState(0);
-  const [operAnio, setOperAnio] = useState(0);
-  const [subestacion, setSubestacion] = useState(0);
-  const [hectareas, setHectareas] = useState(0);
-  const [co2, setCo2] = useState(0);
+  const [scrollValue, setScrollValue] = useState(0);
   const [screenWith, setScreenWith] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [project, setProject] = useState(0);
   const swiper = useSwiper();
 
-  const animationPaneles = (increment: number = 0) => {
-    if (increment < 168) {
-      setPaneles(increment);
-      setTimeout(() => {
-        animationPaneles(increment + 2)
-      }, 10)
-    } else {
-      setPaneles(168);
-    }
-  }
-
-  const animationIrradiancia = (increment: number = 0) => {
-    if (increment < 1882) {
-      setIrradiancia(increment);
-      setTimeout(() => {
-        animationIrradiancia(increment + 20)
-      }, 10)
-    } else {
-      setIrradiancia(1882);
-    }
-  }
-
-  const animationCapacidad = (increment: number = 0) => {
-    if (increment < 109) {
-      setCapacidad(increment);
-      setTimeout(() => {
-        animationCapacidad(increment + 6)
-      }, 10)
-    } else {
-      setCapacidad(109);
-    }
-  }
-
-  const animationFactor = (increment: number = 0) => {
-    if (increment < 18) {
-      setFactor(increment);
-      setTimeout(() => {
-        animationFactor(increment + 1)
-      }, 100)
-    } else {
-      setFactor(18);
-    }
-  }
-
-  const animationProduccion = (increment: number = 0) => {
-    if (increment < 170187) {
-      setProduccion(increment);
-      setTimeout(() => {
-        animationProduccion(increment + 1800)
-      }, 10)
-    } else {
-      setProduccion(170187);
-    }
-  }
-
-  const animationMnw = (increment: number = 0) => {
-    if (increment < 99.5) {
-      setMnw(increment);
-      setTimeout(() => {
-        animationMnw(increment + 3.1)
-      }, 10)
-    } else {
-      setMnw(99.5);
-    }
-  }
-
-  const animationOperDia = (increment: number = 0) => {
-    if (increment < 31) {
-      setOperDia(increment);
-      setTimeout(() => {
-        animationOperDia(increment + 1)
-      }, 30)
-    } else {
-      setOperDia(31);
-    }
-  }
-
-  const animationOperMes = (increment: number = 0) => {
-    if (increment < 12) {
-      setOperMes(increment);
-      setTimeout(() => {
-        animationOperMes(increment + 1)
-      }, 100)
-    } else {
-      setOperMes(12);
-    }
-  }
-
-  const animationOperAnio = (increment: number = 0) => {
-    if (increment < 24) {
-      setOperAnio(increment);
-      setTimeout(() => {
-        animationOperAnio(increment + 1)
-      }, 50)
-    } else {
-      setOperAnio(23);
-    }
-  }
-
-  const animationSubestacion = (increment: number = 0) => {
-    if (increment < 115) {
-      setSubestacion(increment);
-      setTimeout(() => {
-        animationSubestacion(increment + 10)
-      }, 10)
-    } else {
-      setSubestacion(115);
-    }
-  }
-
-  const animationHectareas = (increment: number = 0) => {
-    if (increment < 216) {
-      setHectareas(increment);
-      setTimeout(() => {
-        animationHectareas(increment + 2)
-      }, 10)
-    } else {
-      setHectareas(216);
-    }
-  }
-
-  const animationCo2 = (increment: number = 0) => {
-    if (increment < 26209) {
-      setCo2(increment);
-      setTimeout(() => {
-        animationCo2(increment + 1203)
-      }, 10)
-    } else {
-      setCo2(26209);
-    }
-  }
-
   useEffect(() => {
     setScreenWith(window.screen.width);
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              if (paneles === 0) {
-                animationPaneles();
-                animationIrradiancia();
-                animationCapacidad();
-                animationFactor();
-                animationProduccion();
-                animationMnw();
-                animationOperDia();
-                animationOperMes();
-                animationOperAnio();
-                animationSubestacion()
-                animationCapacidad();
-                animationHectareas();
-                animationCo2();
-              }
-              observer.disconnect(); // Deja de observar después de la primera intersección
-            }
-          });
-        },
-        {
-          threshold: 0.1 // El 10% del elemento tiene que estar visible para considerarlo "visible"
-        }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
-      }
-    };
-
-  }, [animationFactor, animationHectareas, animationIrradiancia, animationCapacidad, animationPaneles, animationProduccion, animationMnw, paneles, animationOperDia, animationOperMes, animationOperAnio, animationSubestacion, animationCo2]);
-
-  useEffect(() => {
     if (typeof window !== "undefined") {
       scrollTo({top: -window.scrollY, behavior: "instant"});
     }
   }, []);
-
-  const [scrollValue, setScrollValue] = useState(0);
 
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
@@ -255,12 +69,12 @@ export default function Home() {
       setScrollValue(0);
     }
   }, [currentSlide, scrollValue]);
-
+/*
   useEffect(() => {
     console.log("Current slide: ", currentSlide);
     console.log("Current navbar: ", navBar);
     console.log("Current scroll val: ", scrollValue);
-  }, [currentSlide, navBar, scrollValue]);
+  }, [currentSlide, navBar, scrollValue]);*/
 
   return (
       <>
@@ -517,52 +331,52 @@ export default function Home() {
       <span
           className={`lg:h-[40vh] flex flex-col items-center justify-center bg-primary text-white py-8 text-left md:px-8 xl:pt-8 z-10 ${screenWith > 760 ? navBar === 'capacity' ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft' : ''}`}>
         <h2 className="text-3xl md:text-2xl 2xl:text-3xl my-2 xl:my-4 font-bold">Capacidad</h2>
-        <section ref={elementRef}
+        <section 
                  className="text-center lg:text-start flex-wrap flex md:grid md:grid-cols-2 lg:grid-cols-4 md:justify-items-center text-xl gap-16 md:gap-12 lg:gap-6 w-full justify-center mt-4 px-4 md:px-0">
           <span
               className="lg:border-r-2 px-4 lg:pr-8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{irradiancia}
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={20} increment={20} numberFinal={1882}/>
             <span
                 className="text-lg 2xl:text-xl 2xl:pb-1">kWh/m2</span></strong> <span
               className="text-center lg:text-start lg:w-36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Irradiancia solar anual</span></span>
           <span
               className="lg:border-r-2 px-4 lg:pr-8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{capacidad}
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={45} increment={4} numberFinal={168}/>
             <span
                 className="text-lg 2xl:text-xl 2xl:pb-1">MWp</span></strong> <span
               className="text-center lg:text-start lg:w-36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Capacidad instalada</span></span>
           <span
               className="lg:border-r-2 px-4 lg:pr-8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{paneles} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={40} increment={2} numberFinal={109}/> <span
               className="text-lg 2xl:text-xl 2xl:pb-1">Mil</span></strong> <span
               className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Paneles instalados</span></span>
           <span
               className="px-4 lg:pr-8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"> <strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{factor} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={100} increment={1} numberFinal={18}/> <span
               className="text-xl ml-1 md:pb-1">%</span> </strong><span
               className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit  ">Factor de planta</span></span>
           <div className={"hidden col-span-4 lg:grid grid-cols-2 justify-items-center place-items-center w-1/2 gap-6"}>
             <span
                 className="lg:border-r-2 px-4 lg:pr-8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{produccion.toFixed(1)}
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={20} increment={1800} numberFinal={170187}/>
               <span
                   className="text-lg 2xl:text-xl 2xl:pb-1">MWh</span></strong> <span
                 className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Producción anual</span></span>
             <span
                 className="px-4 lg:pr-8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{mnw.toFixed(1)}
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={45} increment={2} numberFinal={99.5}/>
               <span
                   className="text-lg 2xl:text-xl 2xl:pb-1">MWn</span></strong></span>
           </div>
           <span
               className="lg:border-r-2 px-4 lg:pr-8 lg:hidden flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{produccion.toFixed(1)}
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={20} increment={1800} numberFinal={170187}/>
             <span
                 className="text-lg 2xl:text-xl 2xl:pb-1">MWh</span></strong> <span
               className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Producción anual</span></span>
             <span
                 className="px-4 lg:pr-8 lg:hidden flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">{mnw.toFixed(1)}
+                className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end"><CounterAnimation frequency={45} increment={2} numberFinal={99.5}/>
               <span
                   className="text-lg 2xl:text-xl 2xl:pb-1">MWn</span></strong></span>
         </section>
@@ -582,7 +396,7 @@ export default function Home() {
               className="text-center lg:text-start lg:w-36 xl:w-24 2xl:w-36 text-base 2xl:text-inherit">Subestación Línea</span></span>
           <span
               className="lg:border-r-2 px-4 lg:pr-8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl mr-4 flex items-end">{subestacion} <span
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl mr-4 flex items-end"><CounterAnimation frequency={40} increment={2} numberFinal={115}/> <span
               className="text-lg 2xl:text-xl 2xl:pb-1">kV</span></strong> <span
               className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 text-base 2xl:text-inherit">Subestación el Zaque</span></span>
           <span
@@ -608,13 +422,13 @@ export default function Home() {
               className="w-20" src={'/images/mapa.png'} width={1920} height={1920} alt="Cauca"/> </span>
           <span
               className="lg:border-r-2 px-4 lg:pr- 8 flex justify-center flex-col lg:flex-row items-center 2xl:items-start"><strong
-              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">+{co2.toLocaleString()}
+              className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl lg:mr-4 flex items-end">+<CounterAnimation frequency={45} increment={700} numberFinal={26209}/>
             <span
                 className="text-lg 2xl:text-xl 2xl:pb-1">&nbsp;ton. CO2</span></strong> <span
               className="text-center lg:text-start lg:w-28 xl:w-20 2xl:w-28 md:text-xl 2xl:text-inherit">Prevenidas</span></span>
           <span
               className="md:w-[25%] px-4 md:px-8 flex flex-col lg:flex-row items-center text-center lg:text-start justify-center lg:justify-end gap-2 lg:gap-0"><strong
-              className="text-4xl lg:text-3xl xl:text-4xl lg:mr-4">{hectareas} </strong> Hectáreas de terreno</span>
+              className="text-4xl lg:text-3xl xl:text-4xl lg:mr-4"><CounterAnimation frequency={45} increment={10} numberFinal={216}/> </strong> Hectáreas de terreno</span>
         </section>
       </span>
             {
