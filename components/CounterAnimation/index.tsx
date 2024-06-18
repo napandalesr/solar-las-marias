@@ -29,10 +29,7 @@ const CounterAnimation = ({increment, frequency, numberFinal}: Props) => {
         (entries, observer) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              //
-              
               if (numberShow === 0) {
-                //console.log(increment);
                 runtAnimation(increment);
               }
               observer.disconnect(); // Deja de observar después de la primera intersección
@@ -57,9 +54,7 @@ const CounterAnimation = ({increment, frequency, numberFinal}: Props) => {
   }, [numberShow, runtAnimation]);
 
 
-  return <>
-  <span ref={elementRef}>{numberShow}</span>
-  </>;
+  return <span ref={elementRef}>{numberShow}</span>;
 }
 
 export default CounterAnimation;
