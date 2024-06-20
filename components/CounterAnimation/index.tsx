@@ -10,6 +10,7 @@ type Props = {
 
 const CounterAnimation = ({increment, frequency, numberFinal}: Props) => {
   const [numberShow, setNumberShow] = useState(0);
+  const [show, setShow] = useState(false);
   const incrementTo = increment;
   const elementRef = useRef(null);
 
@@ -30,6 +31,7 @@ const CounterAnimation = ({increment, frequency, numberFinal}: Props) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               if (numberShow === 0) {
+                setShow(true);
                 runtAnimation(increment);
               }
               observer.disconnect(); // Deja de observar después de la primera intersección
@@ -54,7 +56,7 @@ const CounterAnimation = ({increment, frequency, numberFinal}: Props) => {
   }, [numberShow, runtAnimation]);
 
 
-  return <span ref={elementRef}>{numberShow}</span>;
+  return <span className={`${show ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} ref={elementRef}>{numberShow}</span>;
 }
 
 export default CounterAnimation;

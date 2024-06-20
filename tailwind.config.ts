@@ -10,7 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        "2xl": "1534px"
+        "2xl": "1534px",
+        'tall': { 'raw': '(min-height: 800px)' },
+        'normal': { 'raw': '(min-height: 680px)' },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

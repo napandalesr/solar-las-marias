@@ -11,12 +11,13 @@ import { Props } from '@/types/props';
 
 import 'swiper/css';
 
+
 const Projects = ({ navBar, setNavBar }: Props) => {
   const [project, setProject] = useState(0);
   const swiper = useSwiper();
   const {width} = useScreenSize();
 
-  return <section id="projects" className="md:h-screen text-center relative bg-white">
+  return <section id="projects" className="md:h-screen text-center relative bg-white py-8">
   <section
       className={`hidden md:text-xs xl:text-base md:flex lg:items-center w-screen h-[20vh] border-2 text-left z-10 relative text-primary top-[10vh] ${width > 760 ? navBar == 'projects' ? ' animate__flipInX' : ' animate__flipOutX' : ''}`}>
     <span

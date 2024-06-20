@@ -6,12 +6,12 @@ import Header from "@/components/Header";
 import Top from "@/containers/Top";
 import About from "@/containers/About";
 import Projects from "@/containers/Projects";
-import Capacity from "@/containers/Capacity/index.tsx";
-import News from "@/containers/News";
+import Capacity from "@/containers/Capacity";
 import Contact from "@/containers/Contact";
 import Footer from "@/components/Footer";
 
 import 'animate.css';
+import Blogs from "@/containers/Blogs";
 
 export default function Home() {
   const [navBar, setNavBar] = useState("top");
@@ -82,7 +82,7 @@ export default function Home() {
         <About navBar={navBar} setNavBar={setNavBar}/>
         <Projects navBar={navBar} setNavBar={setNavBar}/>
         <Capacity navBar={navBar} setNavBar={setNavBar}/>
-        <News navBar={navBar} setNavBar={setNavBar}/>
+        <Blogs navBar={navBar} setNavBar={setNavBar}/>
         <Contact navBar={navBar} setNavBar={setNavBar}/>
       </main>
       <Footer navBar={navBar} setNavBar={setNavBar}/>
