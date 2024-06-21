@@ -31,8 +31,9 @@ const NewsMobile = ({BlogData}: Props) => {
       BlogData.map((item, index)=> <span key={index} className='flex mx-4 relative mt-4'>
       <span className='border-b-2'>
         <h1 className='font-bold'>{item.title}</h1>
-        <span className='flex justify-between mt-4'>
-          <p className='text-xs font-light' dangerouslySetInnerHTML={{__html: item.date}}/>
+        <p className='text-xs font-light' dangerouslySetInnerHTML={{__html: item.date}}/>
+        <span className='flex justify-between mb-1'>
+          <p></p>
           <button onClick={()=>selectBlog(index)} className='text-xs float-right border-primary text-primary underline'>Continuar leyendo</button>
         </span>
       </span>

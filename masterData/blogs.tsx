@@ -1,11 +1,12 @@
 export const BlogsData = [
   {
+    index: 1,
     title: 'El Cauca avanza hacia la transición energética de la mano de mujeres y jóvenes como instaladores de sistemas fotovoltaicos',
     article: `Se firmó el marco legal que permitirá a la Granja Solar Las Marías iniciar actividades del proyecto de energía solar más 
     grande del suroccidente colombiano. Este ya cuenta con el aval oficial para empezar a capacitar a mujeres y jóvenes del Patía, Cauca, 
     que harán parte de las operaciones como instaladores fotovoltaicos.`,
     image: "/images/solar11.jpg",
-    date: '<strong>Boletín de prensa #1<br/>Julio 15 de 2024</strong>',
+    date: '<strong>Julio 15 de 2024</strong>',
     text: [
       {
         title: '<strong>Boletín de prensa #2<br/>Julio 15 de 2024</strong>',
@@ -241,12 +242,13 @@ export const BlogsData = [
     ]
   },
   {
+    index: 2,
     title: 'El Cauca está listo para la transición energética con la Granja Solar Las Marías',
     article: `Este proyecto, que se construye en el corregimiento de Guachicono, se suma a 
     las grandes iniciativas que transformarán la industria de la energía solar a 
     nivel nacional`,
     image: "/images/solar12.jpg",
-    date: '<strong>Boletín de prensa #2<br/>Julio 15 de 2024</strong>',
+    date: '<strong>Julio 15 de 2024</strong>',
     text: [
       {
         title: '<strong>Boletín de prensa #2<br/>Julio 15 de 2024</strong>',
