@@ -15,7 +15,7 @@ const Blogs = ({ navBar, setNavBar }: Props) => {
       }
     </Carousel>
   </section>
-  <section className='md:hidden'>
+  <section className='md:hidden bg-white py-10'>
     <NewsMobile BlogData={BlogsData} />
   </section>
   </>

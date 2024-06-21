@@ -25,9 +25,10 @@ const NewsMobile = ({BlogData}: Props) => {
     setShowModal(true);
   }
 
-  return <section>
+  return <section className='text-black'>
+    <h1 className='text-center font-bold text-2xl text-primary'>Noticias</h1>
     {
-      BlogData.map((item, index)=> <span key={index} className='flex mx-4 my-10 relative'>
+      BlogData.map((item, index)=> <span key={index} className='flex mx-4 relative mt-4'>
       <span className='border-b-2'>
         <h1 className='font-bold'>{item.title}</h1>
         <span className='flex justify-between mt-4'>

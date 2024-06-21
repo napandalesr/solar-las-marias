@@ -13,7 +13,7 @@ const ModalBlog = ({BlogData, visible = false, setDataModal}: Props) => {
   return <>
   {
     visible && 
-    <section className='fixed z-50 top-2 bottom-2 left-2 right-2 bg-white overflow-auto px-4 pt-6'>
+    <section className='fixed z-50 top-2 bottom-2 left-2 right-2 bg-white overflow-auto px-4 py-6 text-black'>
       <X onClick={()=>setDataModal(false)} className='float-right font-bold' size={20}/>
       {
         BlogData && 
