@@ -9,7 +9,7 @@ import NewsMobile from '../NewsMobile';
 const Blogs = ({ navBar, setNavBar }: Props) => {
   return <>
   <section className='hidden md:block' id='news'>
-    <Carousel  autoPlay={false} interval={0} loop={false} renderDots={()=><></>}  >
+    <Carousel  autoPlay={false} interval={0} loop={false} renderDots={()=><></>} >
       {
         BlogsData.map((item, index)=> <News key={index} navBar={navBar} setNavBar={setNavBar} BlogData={item}/>)
       }
