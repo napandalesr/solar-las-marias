@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Link from 'next/link';
-import { ArrowDownCircle, Linkedin, TwitterX, ArrowRight, ArrowLeft, Share } from 'react-bootstrap-icons';
+import { ArrowDownCircle, ArrowRight, ArrowLeft, Share } from 'react-bootstrap-icons';
 import Image from 'next/image';
 
 import useScreenSize from '@/hooks/useScreenSize';

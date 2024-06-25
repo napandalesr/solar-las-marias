@@ -8,9 +8,10 @@ type Props = {
   BlogData: BlogsType | undefined
   visible: boolean
   setDataModal: React.Dispatch<React.SetStateAction<boolean>>
+  copyToClipboard?: (index: number)=>void
 }
 
-const ModalBlog = ({BlogData, visible = false, setDataModal}: Props) => {
+const ModalBlog = ({BlogData, visible = false, setDataModal, copyToClipboard}: Props) => {
   return <>
   {
     visible && 
@@ -21,10 +22,17 @@ const ModalBlog = ({BlogData, visible = false, setDataModal}: Props) => {
         BlogData && 
         <><h1 className='text-center font-bold'>{BlogData.title}</h1><article className='my-4 text-xs text-center italic'>{BlogData.article}</article>
         {
+          copyToClipboard && <button onClick={()=>copyToClipboard(BlogData?.index ?? 1)} className='underline mt-2 text-primary font-bold text-center w-full my-3'>Compartir</button>
+        }
+        {
           BlogData.text.map((item, index) => <p className='text-sm text-justify' key={index} dangerouslySetInnerHTML={{__html: item.paragraph}} />)
         }
         </>
       }
+      {
+        copyToClipboard && <button onClick={()=>copyToClipboard(BlogData?.index ?? 1)} className='underline mt-2 text-primary font-bold'>Compartir</button>
+      }
+      
     </section>
   }
   
