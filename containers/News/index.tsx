@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Link from 'next/link';
 import { ArrowDownCircle, Linkedin, TwitterX, ArrowRight, ArrowLeft, Share } from 'react-bootstrap-icons';
@@ -7,6 +7,7 @@ import Image from 'next/image';
 import useScreenSize from '@/hooks/useScreenSize';
 import { BlogsType } from '@/types/blogs';
 import { createToken } from '@/utils/tokens';
+import PupUp from '@/components/PupUp';
 
 export type Props = {
   setNavBar: React.Dispatch<React.SetStateAction<string>>
@@ -17,7 +18,7 @@ export type Props = {
 }
 
 const News = ({ navBar, setNavBar, BlogData, index, length }: Props) => {
-  const [idNoticia, setIdNoticia] = useState(1);
+  const [showPupUp, setShowPupUp] = useState(false);
   const [ counter, setCounter] = useState(0);
   const [ animationParagraph, setAnimationParagraph] = useState('');
   const { width } = useScreenSize();
@@ -58,7 +59,8 @@ const News = ({ navBar, setNavBar, BlogData, index, length }: Props) => {
     const data = { key1: 'value1', key2: index };
     const token = createToken(data);
     navigator.clipboard.writeText("http://localhost:3000/"+token).then(() => {
-      alert('Texto copiado al portapapeles');
+      setShowPupUp(true);
+      setTimeout(()=>setShowPupUp(false), 3000)
     }).catch(err => {
       console.error('Error al copiar el texto: ', err);
     });
@@ -68,8 +70,11 @@ const News = ({ navBar, setNavBar, BlogData, index, length }: Props) => {
     {
       index !== length && <p className='text-white bg-black absolute top-[56%] mt-2 -translate-y-1/2 right-0 z-40 text-xs text-center px-2 py-2 rounded'>Siguiente<br/>Noticia</p>
     }
+    {
+      showPupUp && <PupUp/>
+    }
     <section
-        className={`w-full flex flex-row items-center ${width > 760 ? navBar === 'contact' ? ' animate__slideInRight' : ' animate__slideOutRight' : ''}`}>
+        className={`w-full flex flex-row items-center ${width > 760 ? navBar === 'news' ? 'animate__animated animate__slideInRight' : 'animate__animated animate__slideOutRight' : ''}`}>
       <div className={"flex flex-col items-center justify-center w-full gap-3 md:gap-6 px-4 xl:px-32 relative md:mt-8"}>
         <h2 className={`text-primary font-bold text-xl md:text-3xl tall:text-4xl  ${width > 760 ? navBar == 'top' && ' animate__fadeInDown' : ''}`}>
           {BlogData.title}
@@ -80,12 +85,12 @@ const News = ({ navBar, setNavBar, BlogData, index, length }: Props) => {
         <p className={`text-neutral-500 text-justify text-sm normal:text-base tall:text-lg normal:h-64 normal:mb-24 ${animationParagraph}`}
            dangerouslySetInnerHTML={{__html: BlogData.text[counter].paragraph}}/>
         <ul className={"flex flex-col items-center justify-center gap-6 absolute top-1/2 lg:top-6 xl:top-[55%] -translate-y-1/2 -right-1/2 xl:right-6 !z-40"}>
-          <li className={"bg-primary font-semibold text-white p-3 rounded-xl box-border"}><Link
+          {/*<li className={"bg-primary font-semibold text-white p-3 rounded-xl box-border"}><Link
               className={"flex items-center justify-center gap-4"} href={"https://linkedin.com"}><Linkedin
-              size={20}/></Link></li>
-          <li className={"bg-primary font-semibold text-white p-3 rounded-xl box-border"}><Link
+              size={20}/></Link></li>*/}
+          {/*<li className={"bg-primary font-semibold text-white p-3 rounded-xl box-border"}><Link
               className={"flex items-center justify-center gap-4"} href={"https://twitter.com"}><TwitterX
-              size={20}/></Link></li>
+              size={20}/></Link></li>*/}
           <li className={"bg-primary font-semibold text-white p-3 rounded-xl box-border"} title='Compartir'><button onClick={()=>copyToClipboard(BlogData.index)}
               className={"flex items-center justify-center gap-4"}><Share
               size={20}/></button></li>

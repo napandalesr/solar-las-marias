@@ -77,7 +77,7 @@ export default function Home() {
   return (
     <>
       <Header location={navBar} setNavBar={setNavBar}/>
-      <main className="w-screen">
+      <main className="w-screen bg-white">
         <Top navBar={navBar} setNavBar={setNavBar}/>
         <About navBar={navBar} setNavBar={setNavBar}/>
         <Projects navBar={navBar} setNavBar={setNavBar}/>
